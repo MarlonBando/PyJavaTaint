@@ -1,4 +1,4 @@
-from JVM_emulator import JVM_emulator
+from src.JVM_emulator import JVM_emulator
 
 file_path: str = './jpamb_examples/json_files/Simple.json'
 method_name: str = 'divideByZero'

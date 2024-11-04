@@ -1,6 +1,6 @@
-from utils.stack_printer import Stack_printer
-from utils.heap_printer import Heap_printer
-from utils.jbinary import jbinary
+from src.utils.stack_printer import Stack_printer
+from src.utils.heap_printer import Heap_printer
+from src.utils.jbinary import jbinary
 
 class Instruction_printer:
 

@@ -1,9 +1,27 @@
 import json
-from utils.jbinary import jbinary
-from utils.instruction_printer import Instruction_printer
+from src.utils.jbinary import jbinary
+from src.utils.instruction_printer import Instruction_printer
 
 
 class JVM_emulator:
+      
+  __file_path: str = ''
+  __method_name: str = ''
+  __bytecode: list = []
+  __instruction_pointer: int = 0
+  __stack: list[int] = []
+  __heap: list[ list[int] ] = []
+  __json_file = {}
+
+  __error_interruption: bool = False
+
+  def __init__(self, file_path: str, method_name: str, params=[], start_index=0, stack=None):
+    
+    self.__file_path = file_path
+    self.__method_name = method_name
+    self.__bytecode = self.get_method_bytecode_from_file()
+    self.__instruction_pointer = start_index
+
 
   def get_value_list_from_type(param):
     match param:
@@ -19,34 +37,7 @@ class JVM_emulator:
             return [[0, 1, -1], [2147483647, -2147483648], [], [123, -456]]  # int arrays
         case _:
             return ""
-      
-  __file_path: str = ''
-  __method_name: str = ''
-  __bytecode: list = []
-  __instruction_pointer: int = 0
-  __stack: list[int] = []
-  __heap: list[ list[int] ] = []
-  __json_file = {}
 
-  __error_interruption: bool = False
-
-
-  def __init__(self, file_path: str, method_name: str, params=[], start_index=0, stack=None):
-    
-    self.__file_path = file_path
-    self.__method_name = method_name
-    self.__bytecode = self.get_method_bytecode_from_file()
-    self.__instruction_pointer = start_index
-
-
-    #This if avoid sharing list among different instance of the class
-    if stack is None:
-      self.__stack = []
-    else:
-      self.__stack = stack
-
-    for param in reversed(params):
-      self.__stack.append(param)
 
   def run(self):
     self.follow_program()
@@ -220,7 +211,6 @@ class JVM_emulator:
   def process_division(self) -> None:
     if self.__stack[-1] == 0:
       self.__stack.append( 'div_by_zero' )
-      self.analysis_results['divisions_by_zero'] = 1
       self.process_error()
     else:
       self.__stack.append( self.__stack[-2] / self.__stack[-1] )
@@ -322,9 +312,8 @@ class JVM_emulator:
 
   def kill_slave(self) -> None:
     if not self.__error_interruption:
-      self.analysis_results["ok"] = 1
-    self.__reports_from_slaves.append(self.analysis_results)
-
+      print('Program ran without errors')
+    print('Program stopped because of an error')
 
 
 # TODO : add the dupplication of slaves at an if statement
