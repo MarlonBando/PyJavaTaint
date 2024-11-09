@@ -1,6 +1,7 @@
 import json
 from src.utils.jbinary import jbinary
 from src.utils.instruction_printer import Instruction_printer
+from src.tainted_var import Tainted_var
 
 
 class JVM_emulator:
@@ -140,7 +141,8 @@ class JVM_emulator:
         self.process_array_store()
 
   def process_push(self, current_byte) -> None:
-    self.__stack.append( current_byte['value']['value'])
+    pushed_value: Tainted_var = Tainted_var(current_byte['value']['value'])
+    self.__stack.append( pushed_value)
     self.increment_instructions_pointer()
 
 
@@ -209,8 +211,8 @@ class JVM_emulator:
   
 
   def process_division(self) -> None:
-    if self.__stack[-1] == 0:
-      self.__stack.append( 'div_by_zero' )
+    divisor: Tainted_var = self.__stack[-1]
+    if divisor.value() == 0:
       self.process_error()
     else:
       self.__stack.append( self.__stack[-2] / self.__stack[-1] )
@@ -308,17 +310,7 @@ class JVM_emulator:
     return array_index_in_heap
 
 
-
-
   def kill_slave(self) -> None:
     if not self.__error_interruption:
       print('Program ran without errors')
     print('Program stopped because of an error')
-
-
-# TODO : add the dupplication of slaves at an if statement
-# TODO : add the processing of the 3 other types of error on top of division by zero
-#         - Detection of infinite loops : step counter
-#         - Detection of array out of bounds : registering arrays in memory
-#         - Assertion error
-# TODO : Complete the unsure division

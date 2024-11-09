@@ -1,3 +1,5 @@
+from src.tainted_var import Tainted_var
+
 class Stack_printer:
 
   def print_stack(array_stack: list[int], stack_name: str = 'UNNAMED STACK', stack_width: int = 20) -> None:
@@ -57,10 +59,10 @@ class Stack_printer:
     print(stack_cell_underline)
 
 
-  def print_stack_cell_center(value: int, stack_width: int) -> None:
+  def print_stack_cell_center(value: Tainted_var, stack_width: int) -> None:
 
     printable_value: str = str(value)
-    value_length: int = len(printable_value)
+    value_length: int = value.printable_value_length()
     space_before: int = (stack_width - value_length) // 2
     space_after: int = (stack_width - value_length) // 2 + (stack_width - value_length) % 2
     final_string: str = '││' + ' '*space_before + printable_value + ' '*space_after + '││'
