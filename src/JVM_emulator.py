@@ -1,7 +1,7 @@
 import json
-from src.utils.jbinary import jbinary
-from src.utils.instruction_printer import Instruction_printer
-from src.tainted_var import Tainted_var
+from .utils.jbinary import jbinary
+from .utils.instruction_printer import Instruction_printer
+from .tainted_var import Tainted_var
 
 
 class JVM_emulator:
