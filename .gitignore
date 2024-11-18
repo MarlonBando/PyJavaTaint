@@ -1,5 +1,6 @@
 .venv
-__pychache__
+__pycache__
 .vscode
-
+settings.yaml
+aaaaaaaaa.json
 webgoat-2024.2-SNAPSHOT.jar
