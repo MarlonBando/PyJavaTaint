@@ -5,7 +5,8 @@ def api_call(url,data,filename):
 
     # Add your session cookies here
     cookies = {
-        "JSESSIONID": "qqjQtDDRioPpDgB70bxKVgFk7oM2xjY8Y_v2PRJr",  # Replace this with the actual session ID
+        "JSESSIONID": "Un341K6x6s9O0UdsDJB9g3DKl6mI9NQZvFQtKSPI",
+        # Replace this with the actual session ID
     }
 
     # Make the POST request with cookies
