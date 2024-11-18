@@ -90,5 +90,11 @@ column_names = [
 table_info = Table_info(table_name, column_names)
 benign_queries = generate_benign_queries(table_info)
 injection_queries = generate_injection_queries(table_info, benign_queries)
-for injection_query in injection_queries:
-  print(injection_query)
+
+
+def get_injection_queries():
+  
+  table_info = Table_info(table_name, column_names)
+  benign_queries = generate_benign_queries(table_info)
+  injection_queries = generate_injection_queries(table_info, benign_queries)
+  return injection_queries

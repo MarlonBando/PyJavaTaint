@@ -1,15 +1,14 @@
 import random
 import string
 import caller 
+import dictionnary_generator
 
-
-  # TODO : write the function that goes throught the fuzzing dictionnary and alternatively injects and verifies the database's state
   
 def inject_data(query):
     """Inject a query via the API using the method from caller.py."""
     try:
         # Define the URL and data (you may need to adjust these based on fuzzed inputs)
-        url = 'http://localhost:8080/WebGoat/SqlInjection/attack4?username=Bando01'  # Example URL for SQL injection
+        url = 'http://localhost:8080/WebGoat/SqlInjection/attack4?username=mathias'  # Example URL for SQL injection
         data = {"query": query}
         
         # Call the api_call method from caller.py to send the fuzzed query
@@ -41,5 +40,6 @@ def fuzz(fuzz_dict):
                 verify_state(value)
 
 # Call the fuzzer with the dictionary
-fuzz(dictionary)
+injection_queries = dictionnary_generator.get_injection_queries()
+fuzz(injection_queries)
   
