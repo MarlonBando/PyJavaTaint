@@ -1,2 +1,3 @@
-__pycache__
-convert2json.sh
+.venv
+__pychache__
+.vscode
