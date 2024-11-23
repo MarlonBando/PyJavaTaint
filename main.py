@@ -1,6 +1,8 @@
 from constant import Settings
+import query_list_generator as qlg
+from fuzzer import Fuzzer
 
 settings = Settings()
 
-print(settings.USER)
-print(settings.JSESSIONID)
+fuzzer = Fuzzer(settings)
+fuzzer.fuzz_endpoint("Assignment 5b")

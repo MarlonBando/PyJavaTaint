@@ -1,3 +1,29 @@
-user_settings:
+user_settings: 
   username: "Bando00"
-  jsessionid : ""
+  jsessionid : "jAn6IbHl-RGugWcP1pgufXu6xPAepc2-FfU-zO8c"
+
+base_api_settings:
+  url: "http://localhost:8080/WebGoat/SqlInjection/"
+  direct_query_addr: "attack2direct"
+
+api_endpopints_settings:
+  - name: "Lesson 2"
+    suffix: "attack2"
+    parameters:
+      - name: "query"
+        type: "query"
+        default: "Select department from employees where last_name = 'Franco'"
+    # - table_structure:
+    #   - table_name: "employees"
+    #   - column_names:
+    #     - 
+  
+  - name : "Assignment 5b"
+    suffix: "assignment5b"
+    parameters:
+      - name: "Login_Count"
+        type: "string"
+        default: "0" 
+      - name : "User_Id"
+        type: "string"
+        default: "101"

@@ -3,12 +3,6 @@ import json
 
 def api_call(url,data,filename):
 
-    # Add your session cookies here
-    cookies = {
-        "JSESSIONID": "Un341K6x6s9O0UdsDJB9g3DKl6mI9NQZvFQtKSPI",
-        # Replace this with the actual session ID
-    }
-
     # Make the POST request with cookies
     response = requests.post(url, data=data, cookies=cookies)
 
@@ -42,10 +36,5 @@ data = {
     "query" : query
 }
 
-
-
-# Call the function
 api_call(url_check_all, data_check_all, 'aaaaaaaaa.json')
-# api_call(url, data, 'alterResult.json')
-# api_call(url_check_all, data_check_all, 'secondCheck.json')
 
