@@ -23,3 +23,13 @@ api_endpopints_settings:
       - name : "userid"
         type: "string"
         default: "101"
+
+  - name : "Assignment 5a"
+    suffix: "attack8"
+    parameters:
+      - name: "name"
+        type: "string"
+        default: "Smith" 
+      - name : "auth_tan"
+        type: "string"
+        default: "3SL99A"
