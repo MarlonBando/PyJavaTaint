@@ -7,6 +7,7 @@ class Parameter:
     """Represents a parameter configuration for an API endpoint."""
     type: str
     default: str
+    name: str
 
 @dataclass
 class APIEndpoint:
@@ -92,6 +93,7 @@ class Settings:
             if 'type' not in param or 'default' not in param:
                 raise ValueError("Parameter missing required 'type' or 'default' field")
             parameter = Parameter(
+                name=param['name'],
                 type=param['type'],
                 default=param['default']
             )
