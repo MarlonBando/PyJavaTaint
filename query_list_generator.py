@@ -13,7 +13,7 @@ EXFILTRATION_SUFFIXES = [
 ### MAIN FUNCTIONS TO USE
 
 
-def generate_tainted_text_inputs_for_exfiltration() -> list[str]:
+def generate_tainted_strings_for_exfiltration() -> list[str]:
 
   tainted_text_inputs: list[str] = []
   for suffix in EXFILTRATION_SUFFIXES:
@@ -23,7 +23,7 @@ def generate_tainted_text_inputs_for_exfiltration() -> list[str]:
 
 
 
-def generate_tainted_text_inputs_for_corruption() -> list[str]:
+def generate_tainted_strings_for_corruption() -> list[str]:
 
   tainted_text_inputs: list[str] = []
   for suffix in EXFILTRATION_SUFFIXES:
