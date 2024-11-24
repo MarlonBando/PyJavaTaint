@@ -9,6 +9,7 @@ class Fuzzer:
     def __init__(self, settings: Settings):
         self.basic_url: str = settings.URL
         self.jessionid: str = settings.JSESSIONID
+        self.direct_query_url: str = settings.URL + settings.direct_query_url
         self.endpoints: list[str] = []
         self.endpoints: list = settings.api_endpoints
 
@@ -41,6 +42,9 @@ class Fuzzer:
                     injectable = True
             if not injectable:
                 print(f'No SQL Injection found in {endpoint.name} parameter {parameter.type}')
+        
+        
+
 
     def _get_legit_result(self, url: str, endpoint: APIEndpoint) -> str:
         data = self._get_data_post_call(endpoint.parameters)
