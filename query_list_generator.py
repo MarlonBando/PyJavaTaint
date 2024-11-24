@@ -10,7 +10,7 @@ EXFILTRATION_SUFFIXES = [
     "' OR ''='",
 ]
 
-
+### MAIN FUNCTIONS TO USE
 
 
 def generate_tainted_text_inputs_for_exfiltration() -> list[str]:
@@ -53,6 +53,8 @@ def generate_tainted_queries_for_corruption(basic_query: str, db_table_settings:
   return tainted_queries
 
 
+
+### ASSISTING FUNCTIONS
 
 def generate_corruption_suffixes(db_table_settings: DB_table_settings) -> list[str]:
   table_name: str = db_table_settings.table_name
@@ -112,7 +114,7 @@ def get_default_from_datatype(list_of_datatypes: list[str]) -> list[str]:
     else:
       raise Exception("Error : a datatype can be TEXT or INT")
 
-  return list_of_datatypes
+  return list_of_defaults
 
 ## TESTS
 
@@ -121,6 +123,13 @@ column_names = ["name", "wage", "department"]
 datatypes = ["TEXT", "INT", "TEXT"]
 db_table_settings: DB_table_settings = DB_table_settings("employees", column_names, datatypes)
 
+print("\nCORRUPTION QUERIES : \n")
 corruption_queries: list[str] = generate_tainted_queries_for_corruption(basic_query, db_table_settings)
 for query in corruption_queries:
+  print(query)
+
+print("\nEXFILTRATION QUERIES : \n")
+basic_query += "WHERE department=\"marketing\""
+exfiltration_queries: list[str] = generate_tainted_queries_for_exfiltration(basic_query)
+for query in exfiltration_queries:
   print(query)
