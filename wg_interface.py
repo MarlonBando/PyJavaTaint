@@ -2,9 +2,8 @@ import re
 import json
 import requests
 
-def conduct_webgoat_query(url, query, jsessionid, name_of_lesson):
+def query_webgoat(url, request_data, jsessionid, name_of_lesson):
      
-    request_data = { "query": query }
     request_cookies = {"JSESSIONID": jsessionid}
     raw_webgoat_output = requests.post(url, data=request_data, cookies=request_cookies)
     return webgoat_to_json(raw_webgoat_output)

@@ -5,31 +5,32 @@ user_settings:
 base_api_settings:
   url: "http://localhost:8080/WebGoat/SqlInjection/"
   direct_query_addr: "attack2direct"
+  direct_query: "SELECT * FROM employees;"
 
-api_endpopints_settings:
+api_endpoints_settings:
   - name: "Lesson 2"
     suffix: "attack2"
     parameters:
       - name: "query"
         type: "query"
-        default: "Select department from employees where last_name = 'Franco'"
+        default_input: "Select department from employees where last_name = 'Franco'"
   
   - name : "Assignment 5b"
     suffix: "assignment5b"
     parameters:
       - name: "login_count"
         type: "string"
-        default: "0" 
+        default_input: "0" 
       - name : "userid"
         type: "string"
-        default: "101"
+        default_input: "101"
 
   - name : "Assignment 5a"
     suffix: "attack8"
     parameters:
       - name: "name"
         type: "string"
-        default: "Smith" 
+        default_input: "Smith" 
       - name : "auth_tan"
         type: "string"
-        default: "3SL99A"
+        default_input: "3SL99A"
