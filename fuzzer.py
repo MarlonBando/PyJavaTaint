@@ -2,11 +2,12 @@ from constant import Settings, APIEndpoint, Parameter
 import requests
 import query_list_generator as qlg
 from typing import Dict, Any
+import json
 
 class Fuzzer:
 
     def __init__(self, settings: Settings):
-        self.basic_url: str = settings.URL + settings.DIRECT_QUERY_ADDR
+        self.basic_url: str = settings.URL
         self.endpoints: list[str] = []
         self.endpoints: list = settings.api_endpoints
 
@@ -49,7 +50,7 @@ class Fuzzer:
         return self.get_result(url, param_data)
 
     def get_result(self, url: str, data: Dict[str, Any]) -> str:
-        response = requests.post(url, json=data, headers={'Content-Type': 'application/json'})
+        response = requests.post(url, data=data)
         return self.validate_result(response)
 
     def validate_result(self, response):
@@ -61,4 +62,4 @@ class Fuzzer:
         return output.replace('\n', '')
     
     def get_data_post_call(self, parameters: list[Parameter]) -> Dict[str, str]:
-        return {param.type: param.default for param in parameters}
+        return {param.name: param.default for param in parameters}
