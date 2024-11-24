@@ -1,6 +1,6 @@
 user_settings: 
-  username: "bando01"
-  jsessionid : "JlUjWG-pRkIcOPcz_sfq9eNVnoOTyNxKrEmza9WC"
+  username: "bando00"
+  jsessionid : "F_2BemzCMVh6z05wf4AWidDJ7XkGhkYjtv8eJpqc"
 
 base_api_settings:
   url: "http://localhost:8080/WebGoat/SqlInjection/"
@@ -13,17 +13,13 @@ api_endpopints_settings:
       - name: "query"
         type: "query"
         default: "Select department from employees where last_name = 'Franco'"
-    # - table_structure:
-    #   - table_name: "employees"
-    #   - column_names:
-    #     - 
   
   - name : "Assignment 5b"
     suffix: "assignment5b"
     parameters:
-      - name: "Login_Count"
+      - name: "login_count"
         type: "string"
         default: "0" 
-      - name : "User_Id"
+      - name : "userid"
         type: "string"
         default: "101"

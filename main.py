@@ -5,4 +5,4 @@ from fuzzer import Fuzzer
 settings = Settings()
 
 fuzzer = Fuzzer(settings)
-fuzzer.fuzz_endpoint("Lesson 2")
+fuzzer.fuzz_endpoint("Assignment 5b")

@@ -8,6 +8,7 @@ class Fuzzer:
 
     def __init__(self, settings: Settings):
         self.basic_url: str = settings.URL
+        self.jessionid: str = settings.JSESSIONID
         self.endpoints: list[str] = []
         self.endpoints: list = settings.api_endpoints
 
@@ -24,12 +25,13 @@ class Fuzzer:
 
     def _fuzz_endpoint(self, endpoint: APIEndpoint) -> None:
         url = self.basic_url + endpoint.suffix
-        legit_result = self.get_legit_result(url, endpoint)
+        legit_result = self._get_legit_result(url, endpoint)
 
+        
         for parameter in endpoint.parameters:
             injectable = False
             for tainted_query in qlg.generate_tainted_queries_for_exfiltration():
-                tainted_result = self.get_tainted_result(url, endpoint, parameter, tainted_query)
+                tainted_result = self._get_tainted_result(url, endpoint, parameter, tainted_query)
                 if tainted_result != legit_result:
                     print(f'Potential SQL Injection found in {endpoint.name} parameter {parameter.type}')
                     print(f'Original query: {parameter.default}')
@@ -40,26 +42,31 @@ class Fuzzer:
             if not injectable:
                 print(f'No SQL Injection found in {endpoint.name} parameter {parameter.type}')
 
-    def get_legit_result(self, url: str, endpoint: APIEndpoint) -> str:
-        data = self.get_data_post_call(endpoint.parameters)
-        return self.get_result(url, data)
+    def _get_legit_result(self, url: str, endpoint: APIEndpoint) -> str:
+        data = self._get_data_post_call(endpoint.parameters)
+        return self._get_result(url, data=data)
     
-    def get_tainted_result(self, url: str, endpoint: APIEndpoint, parameter: Parameter, tainted_query: str) -> str:
-        param_data = self.get_data_post_call(endpoint.parameters)
+    def _get_tainted_result(self, url: str, endpoint: APIEndpoint, parameter: Parameter, tainted_query: str) -> str:
+        param_data = self._get_data_post_call(endpoint.parameters)
         param_data[parameter.type] = parameter.default + tainted_query
-        return self.get_result(url, param_data)
+        return self._get_result(url, param_data)
 
-    def get_result(self, url: str, data: Dict[str, Any]) -> str:
-        response = requests.post(url, data=data)
-        return self.validate_result(response)
+    def _get_result(self, url: str, data: Dict[str, Any]) -> str:
+        response = requests.post(url, data=data,cookies=self._get_cookies())
+        return self._validate_result(response)
 
-    def validate_result(self, response):
+    def _validate_result(self, response):
         if response.status_code != 200:
+            print(f"Request failed with status code {response.status_code}")
             return {}
         
         response_json = json.loads(response.text)
-        output = response.get("output", "")
+        output = response_json.get("output", "")
         return output.replace('\n', '')
     
-    def get_data_post_call(self, parameters: list[Parameter]) -> Dict[str, str]:
+    def _get_data_post_call(self, parameters: list[Parameter]) -> Dict[str, str]:
         return {param.name: param.default for param in parameters}
+    
+    def _get_cookies(self) -> Dict[str, str]:
+        return {'JSESSIONID': self.jessionid}
+
