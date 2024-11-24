@@ -1,4 +1,4 @@
-from db_table_settings import DB_table_settings
+from objects import DB_table_settings
 
 BASIC_NUMERICAL_INPUT = "1"
 
@@ -59,7 +59,7 @@ def generate_tainted_queries_for_corruption(basic_query: str, db_table_settings:
 def generate_corruption_suffixes(db_table_settings: DB_table_settings) -> list[str]:
   table_name: str = db_table_settings.table_name
   column_names: list[str] = db_table_settings.column_names
-  column_datatypes: list[str] = db_table_settings.data_types
+  column_datatypes: list[str] = db_table_settings.column_datatypes
 
   CORRUPTION_SUFFIXES = [
     f"'; DROP TABLE {table_name};--",
@@ -83,7 +83,7 @@ def build_insert_suffixe(db_table_settings: DB_table_settings):
 
   table_name: str = db_table_settings.table_name
   column_names: list[str] = db_table_settings.column_names
-  column_datatypes: list[str] = db_table_settings.data_types
+  column_datatypes: list[str] = db_table_settings.column_datatypes
 
   INSERTION_SUFFIXE: str = f"'; INSERT INTO {table_name} " 
   INSERTION_SUFFIXE +=  format_list_to_string(column_names)
@@ -117,19 +117,19 @@ def get_default_from_datatype(list_of_datatypes: list[str]) -> list[str]:
   return list_of_defaults
 
 ## TESTS
+if __name__ == '__maine__':
+  basic_query: str = "SELECT * FROM employees"
+  column_names = ["name", "wage", "department"]
+  datatypes = ["TEXT", "INT", "TEXT"]
+  db_table_settings: DB_table_settings = DB_table_settings("employees", column_names, datatypes)
 
-basic_query: str = "SELECT * FROM employees"
-column_names = ["name", "wage", "department"]
-datatypes = ["TEXT", "INT", "TEXT"]
-db_table_settings: DB_table_settings = DB_table_settings("employees", column_names, datatypes)
+  print("\nCORRUPTION QUERIES : \n")
+  corruption_queries: list[str] = generate_tainted_queries_for_corruption(basic_query, db_table_settings)
+  for query in corruption_queries:
+    print(query)
 
-print("\nCORRUPTION QUERIES : \n")
-corruption_queries: list[str] = generate_tainted_queries_for_corruption(basic_query, db_table_settings)
-for query in corruption_queries:
-  print(query)
-
-print("\nEXFILTRATION QUERIES : \n")
-basic_query += "WHERE department=\"marketing\""
-exfiltration_queries: list[str] = generate_tainted_queries_for_exfiltration(basic_query)
-for query in exfiltration_queries:
-  print(query)
+  print("\nEXFILTRATION QUERIES : \n")
+  basic_query += "WHERE department=\"marketing\""
+  exfiltration_queries: list[str] = generate_tainted_queries_for_exfiltration(basic_query)
+  for query in exfiltration_queries:
+    print(query)

@@ -6,23 +6,33 @@ def query_webgoat(url, request_data, jsessionid, name_of_lesson):
      
     request_cookies = {"JSESSIONID": jsessionid}
     raw_webgoat_output = requests.post(url, data=request_data, cookies=request_cookies)
-    return webgoat_to_json(raw_webgoat_output)
+    return webgoat_to_json(name_of_lesson, raw_webgoat_output.text)
 
 
 
-def webgoat_to_json(name_of_lesson,raw_webgoat_output):
+def wg_direct_database_check(direct_url: str, direct_query: str, jsessionid: str):
+
+    request_data = {"query": direct_query}
+    request_cookies = {"JSESSIONID": jsessionid}
+    raw_webgoat_output = requests.post(direct_url, data=request_data, cookies=request_cookies)
+    print(raw_webgoat_output)
+    return raw_webgoat_output.text
+
+
+
+
+def webgoat_to_json(name_of_lesson,raw_webgoat_output_text):
     match name_of_lesson:
         case "example1":
-            result = {"example1": raw_webgoat_output}
+            result = {"example1": raw_webgoat_output_text}
         case "Assignment 5b":
-            return parse_assignment_5b(raw_webgoat_output)
+            return parse_assignment_5b(raw_webgoat_output_text)
         case "Assignment 5a":
-            return parse_assignment_5a(raw_webgoat_output)
+            return parse_assignment_5a(raw_webgoat_output_text)
         case "Lesson 2":
-            return parse_lesson_2(raw_webgoat_output)
+            return parse_lesson_2(raw_webgoat_output_text)
         case _:
             raise Exception(f"Unhandled lesson : {name_of_lesson}")
-
 
 
 def parse_assignment_5b(raw_webgoat_output):

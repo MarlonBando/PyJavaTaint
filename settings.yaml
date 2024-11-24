@@ -1,11 +1,28 @@
 user_settings: 
   username: "bando00"
-  jsessionid : "F_2BemzCMVh6z05wf4AWidDJ7XkGhkYjtv8eJpqc"
+  jsessionid : "vc6pNvSvJAecFDHEn57GX1AA_aE_ikI3KC3QMz8J"
 
 base_api_settings:
   url: "http://localhost:8080/WebGoat/SqlInjection/"
   direct_query_addr: "attack2direct"
   direct_query: "SELECT * FROM employees;"
+
+db_table_settings:
+  table_name: "employees"
+  column_names:
+    - "userid"
+    - "first_name"
+    - "last_name"
+    - "department"
+    - "salary"
+    - "auth_tan"
+  column_datatypes:
+    - "INT"
+    - "TEXT"
+    - "TEXT"
+    - "TEXT"
+    - "INT"
+    - "TEXT"
 
 api_endpoints_settings:
   - name: "Lesson 2"

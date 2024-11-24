@@ -1,4 +1,4 @@
-from constant import Settings
+from objects import Settings
 import query_list_generator as qlg
 from fuzzer import Fuzzer
 
