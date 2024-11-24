@@ -2,6 +2,7 @@ from constant import Settings, APIEndpoint, Parameter
 import requests
 import query_list_generator as qlg
 from typing import Dict, Any
+import json
 
 class Fuzzer:
 

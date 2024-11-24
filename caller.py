@@ -36,5 +36,5 @@ data = {
     "query" : query
 }
 
-api_call(url_check_all, data_check_all, 'aaaaaaaaa.json')
+api_call(url_check_all, data_check_all, 'api_call_test.json')
 
