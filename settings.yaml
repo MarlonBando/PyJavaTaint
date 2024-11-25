@@ -1,6 +1,6 @@
 user_settings: 
   username: "bando00"
-  jsessionid : "vc6pNvSvJAecFDHEn57GX1AA_aE_ikI3KC3QMz8J"
+  jsessionid : "VfJ85XHkugbU2K3jgVdbtrTjf1fgXhmrvor_GDuY"
 
 base_api_settings:
   url: "http://localhost:8080/WebGoat/SqlInjection/"

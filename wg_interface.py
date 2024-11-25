@@ -103,4 +103,35 @@ def parse_lesson_2(raw_webgoat_output):
 
 
 def remove_white_spaces(input_string):
-    return input_string.replace("\\r", "").replace("\\n", "").replace("\\", "").strip()
+    if input_string:
+        return input_string.replace("\\r", "").replace("\\n", "").replace("\\", "").strip()
+    return input_string
+
+def recreate_database(direct_url: str, jsessionid:str):
+
+    drop_table_query: str = "DROP TABLE employees"
+
+    create_table_query: str = """
+    CREATE TABLE employees (
+        userid INT PRIMARY KEY,
+        first_name VARCHAR(50),
+        last_name VARCHAR(50),
+        department VARCHAR(50),
+        salary DECIMAL(10, 2),
+        auth_tan VARCHAR(10)
+    );
+    """
+
+    fill_table_query: str = """
+    INSERT INTO employees (userid, first_name, last_name, department, salary, auth_tan)
+    VALUES
+        (32147, 'Paulina', 'Travers', 'Accounting', 46000.00, 'P45JSI'),
+        (89762, 'Tobi', 'Barnett', 'Development', 77000.00, 'TA9LL1'),
+        (96134, 'Bob', 'Franco', 'Marketing', 83700.00, 'LO9S2V'),
+        (34477, 'Abraham', 'Holman', 'Development', 50000.00, 'UU2ALK'),
+        (37648, 'John', 'Smith', 'Marketing', 64350.00, '3SL99A');
+    """
+
+    wg_direct_database_check(direct_url, drop_table_query, jsessionid)
+    wg_direct_database_check(direct_url, create_table_query, jsessionid)
+    wg_direct_database_check(direct_url, fill_table_query, jsessionid)

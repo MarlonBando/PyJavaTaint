@@ -36,6 +36,7 @@ class Fuzzer:
 
     def _fuzz_endpoint(self, endpoint: APIEndpoint) -> None:
 
+            wg_interface.recreate_database(self.basic_url+self.direct_query_addr, self.jsessionid)
             self._fuzz_endpoint_with_exfiltration(endpoint)
             self._fuzz_endpoint_with_corruption(endpoint)
 
@@ -65,6 +66,8 @@ class Fuzzer:
     def _fuzz_endpoint_with_corruption(self, endpoint: APIEndpoint) -> None:
 
         url = self.basic_url + endpoint.suffix
+        direct_url: str = self.basic_url + self.direct_query_addr
+        wg_interface.recreate_database(direct_url, self.jsessionid)
         sane_db_snapshot = self.get_db_snapshot()
         for fuzzed_parameter in endpoint.parameters:
 
@@ -79,7 +82,7 @@ class Fuzzer:
                     injectable = True
             if not injectable:
             
-                self.fuzz_report += f'No SQL Injection found in {endpoint.name} parameter {fuzzed_parameter.type}'
+                self.fuzz_report += f'\nNo SQL Injection found in {endpoint.name} parameter {fuzzed_parameter.type}\n'
         self.save_report()
 
 
@@ -99,7 +102,6 @@ class Fuzzer:
 
 
     def _get_result(self, url: str, data: Dict[str, Any], endpoint_name: str) -> str:
-        response = requests.post(url, data=data,cookies=self._get_cookies())
         response = wg_interface.query_webgoat(url, data, self.jsessionid, endpoint_name)
         return response
 
@@ -132,8 +134,8 @@ class Fuzzer:
             report_file.write(self.fuzz_report)
 
     def write_injection_to_report(self, endpoint: APIEndpoint, parameter: Parameter, tainted_query: str, legit_result: str, tainted_result: str):
-        self.fuzz_report += f'Potential SQL Injection found in {endpoint.name} parameter {parameter.type}'
-        self.fuzz_report += f'Original query: {parameter.default_input}'
-        self.fuzz_report += f'Tainted query: {parameter.default_input + tainted_query}'
-        self.fuzz_report += f'Legit result: {legit_result}'
-        self.fuzz_report += f'Tainted result: {tainted_result}'
+        self.fuzz_report += f'\n\nPotential SQL Injection found in {endpoint.name} parameter {parameter.type}\n'
+        self.fuzz_report += f'Original query: {parameter.default_input}\n'
+        self.fuzz_report += f'Tainted query: {parameter.default_input + tainted_query}\n'
+        self.fuzz_report += f'Legit result: {legit_result}\n'
+        self.fuzz_report += f'Tainted result: {tainted_result}\n'

