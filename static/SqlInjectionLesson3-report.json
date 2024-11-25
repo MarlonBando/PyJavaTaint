@@ -1,0 +1,37 @@
+{
+  "vulnerabilities": [
+    {
+      "method": "injectableQuery",
+      "dataFlow": "Direct usage",
+      "detailedPath": [],
+      "statement": "interfaceinvoke statement#0.<java.sql.Statement: int executeUpdate(java.lang.String)>(query)",
+      "source": "query",
+      "type": "SQL_INJECTION"
+    },
+    {
+      "method": "injectableQuery",
+      "dataFlow": "connection#0 = virtualinvoke $stack8.<org.owasp.webgoat.container.LessonDataSource: java.sql.Connection getConnection()>() -> statement#0 = interfaceinvoke connection#0.<java.sql.Connection: java.sql.Statement createStatement(int,int)>(1004, 1007) -> checkStatement#0 = interfaceinvoke connection#0.<java.sql.Connection: java.sql.Statement createStatement(int,int)>(1004, 1007)",
+      "detailedPath": [
+        "connection#0 = virtualinvoke $stack8.<org.owasp.webgoat.container.LessonDataSource: java.sql.Connection getConnection()>()",
+        "statement#0 = interfaceinvoke connection#0.<java.sql.Connection: java.sql.Statement createStatement(int,int)>(1004, 1007)",
+        "checkStatement#0 = interfaceinvoke connection#0.<java.sql.Connection: java.sql.Statement createStatement(int,int)>(1004, 1007)"
+      ],
+      "statement": "statement#0 = interfaceinvoke connection#0.<java.sql.Connection: java.sql.Statement createStatement(int,int)>(1004, 1007)",
+      "source": "createStatement",
+      "type": "UNSAFE_STATEMENT_CREATION"
+    },
+    {
+      "method": "injectableQuery",
+      "dataFlow": "statement#0 = interfaceinvoke connection#0.<java.sql.Connection: java.sql.Statement createStatement(int,int)>(1004, 1007) -> checkStatement#0 = interfaceinvoke connection#0.<java.sql.Connection: java.sql.Statement createStatement(int,int)>(1004, 1007) -> interfaceinvoke statement#0.<java.sql.Statement: int executeUpdate(java.lang.String)>(query)",
+      "detailedPath": [
+        "statement#0 = interfaceinvoke connection#0.<java.sql.Connection: java.sql.Statement createStatement(int,int)>(1004, 1007)",
+        "checkStatement#0 = interfaceinvoke connection#0.<java.sql.Connection: java.sql.Statement createStatement(int,int)>(1004, 1007)",
+        "interfaceinvoke statement#0.<java.sql.Statement: int executeUpdate(java.lang.String)>(query)"
+      ],
+      "statement": "checkStatement#0 = interfaceinvoke connection#0.<java.sql.Connection: java.sql.Statement createStatement(int,int)>(1004, 1007)",
+      "source": "createStatement",
+      "type": "UNSAFE_STATEMENT_CREATION"
+    }
+  ],
+  "totalVulnerabilities": 3
+}
