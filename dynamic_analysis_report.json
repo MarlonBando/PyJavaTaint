@@ -1,0 +1,194 @@
+[
+    {
+        "exfiltration_or_corruption": "exfiltration",
+        "expected": "[{\"USERID\": \"37648\", \"FIRST_NAME\": \"37648\", \"LAST_NAME\": \"John\", \"DEPARTMENT\": \"Smith\"}]",
+        "legit_query": "Smith",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "[{\"USERID\": \"32147\", \"FIRST_NAME\": \"32147\", \"LAST_NAME\": \"Paulina\", \"DEPARTMENT\": \"Travers\"}]",
+        "tainted_query": "Smith1' OR '1'='1' -- "
+    },
+    {
+        "exfiltration_or_corruption": "exfiltration",
+        "expected": "[{\"USERID\": \"37648\", \"FIRST_NAME\": \"37648\", \"LAST_NAME\": \"John\", \"DEPARTMENT\": \"Smith\"}]",
+        "legit_query": "3SL99A",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "[{\"USERID\": \"32147\", \"FIRST_NAME\": \"32147\", \"LAST_NAME\": \"Paulina\", \"DEPARTMENT\": \"Travers\"}]",
+        "tainted_query": "3SL99A1' OR '1'='1"
+    },
+    {
+        "exfiltration_or_corruption": "exfiltration",
+        "expected": "[{\"USERID\": \"37648\", \"FIRST_NAME\": \"37648\", \"LAST_NAME\": \"John\", \"DEPARTMENT\": \"Smith\"}]",
+        "legit_query": "3SL99A",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "[{\"USERID\": \"32147\", \"FIRST_NAME\": \"32147\", \"LAST_NAME\": \"Paulina\", \"DEPARTMENT\": \"Travers\"}]",
+        "tainted_query": "3SL99A1' OR '1'='1' -- "
+    },
+    {
+        "exfiltration_or_corruption": "exfiltration",
+        "expected": "[{\"USERID\": \"37648\", \"FIRST_NAME\": \"37648\", \"LAST_NAME\": \"John\", \"DEPARTMENT\": \"Smith\"}]",
+        "legit_query": "3SL99A",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "[{\"USERID\": \"32147\", \"FIRST_NAME\": \"32147\", \"LAST_NAME\": \"Paulina\", \"DEPARTMENT\": \"Travers\"}]",
+        "tainted_query": "3SL99A' OR ''='"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "Smith",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "Smith'; DROP TABLE employees;--"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "Smith",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "Smith'; ALTER TABLE employees ADD COLUMN hacked_text_column TEXT; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "Smith",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "Smith'; ALTER TABLE employees ADD COLUMN hacked_int_column INT; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "Smith",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "Smith'; INSERT INTO employees (userid,first_name,last_name,department,salary,auth_tan) VALUES (1,hack_string,hack_string,hack_string,1,hack_string); --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "Smith",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN userid; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "Smith",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN first_name; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "Smith",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN last_name; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "Smith",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN department; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "Smith",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN salary; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "Smith",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN auth_tan; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "3SL99A",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "3SL99A'; DROP TABLE employees;--"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "3SL99A",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "3SL99A'; ALTER TABLE employees ADD COLUMN hacked_text_column TEXT; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "3SL99A",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "3SL99A'; ALTER TABLE employees ADD COLUMN hacked_int_column INT; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "3SL99A",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "3SL99A'; INSERT INTO employees (userid,first_name,last_name,department,salary,auth_tan) VALUES (1,hack_string,hack_string,hack_string,1,hack_string); --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "3SL99A",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN userid; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "3SL99A",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN first_name; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "3SL99A",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN last_name; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "3SL99A",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN department; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "3SL99A",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN salary; --"
+    },
+    {
+        "exfiltration_or_corruption": "corruption",
+        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "legit_query": "3SL99A",
+        "name_of_lesson": "Assignment 5a",
+        "obtained": "user lacks privilege or object not found: EMPLOYEES",
+        "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN auth_tan; --"
+    }
+]
