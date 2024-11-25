@@ -39,11 +39,20 @@ def webgoat_to_json(name_of_lesson, raw_webgoat_output_text):
 def parse_direct_query(raw_webgoat_output_text):
     data = json.loads(raw_webgoat_output_text)
     if data['output'] != None:
-        table_text = remove_white_spaces(data['output'])
+        cleaned_data = remove_white_spaces(data['output'])
     else: 
         return data 
-    return table_text
+    if is_valid_json(cleaned_data):
+        cleaned_data = json.loads(cleaned_data)
+    return cleaned_data
 
+
+def is_valid_json(json_string):
+    try:
+        json.loads(json_string)
+        return True
+    except json.JSONDecodeError:
+        return False
 
 def parse_assignment_5b(raw_webgoat_output_text):
     patterns = {

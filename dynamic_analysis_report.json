@@ -3,6 +3,204 @@
         "exfiltration_or_corruption": "exfiltration",
         "expected": [
             {
+                "DEPARTMENT": "Marketing"
+            }
+        ],
+        "legit_query": "Select department from employees where last_name = 'Franco'",
+        "name_of_lesson": "Lesson 2",
+        "obtained": [],
+        "tainted_query": "Select department from employees where last_name = 'Franco'1' OR '1'='1"
+    },
+    {
+        "exfiltration_or_corruption": "exfiltration",
+        "expected": [
+            {
+                "DEPARTMENT": "Marketing"
+            }
+        ],
+        "legit_query": "Select department from employees where last_name = 'Franco'",
+        "name_of_lesson": "Lesson 2",
+        "obtained": [],
+        "tainted_query": "Select department from employees where last_name = 'Franco'1' OR '1'='1' -- "
+    },
+    {
+        "exfiltration_or_corruption": "exfiltration",
+        "expected": [
+            {
+                "DEPARTMENT": "Marketing"
+            }
+        ],
+        "legit_query": "Select department from employees where last_name = 'Franco'",
+        "name_of_lesson": "Lesson 2",
+        "obtained": [],
+        "tainted_query": "Select department from employees where last_name = 'Franco'' OR ''='"
+    },
+    {
+        "exfiltration_or_corruption": "exfiltration",
+        "expected": [
+            {
+                "CC_NUMBER": "987654321",
+                "CC_TYPE": "VISA",
+                "COOKIE": "",
+                "FIRST_NAME": "Joe",
+                "LAST_NAME": "Snow",
+                "LOGIN_COUNT": "0",
+                "USERID": "101"
+            },
+            {
+                "CC_NUMBER": "2234200065411",
+                "CC_TYPE": "MC",
+                "COOKIE": "",
+                "FIRST_NAME": "Joe",
+                "LAST_NAME": "Snow",
+                "LOGIN_COUNT": "0",
+                "USERID": "101"
+            }
+        ],
+        "legit_query": "0",
+        "name_of_lesson": "Assignment 5b",
+        "obtained": [],
+        "tainted_query": "01' OR '1'='1"
+    },
+    {
+        "exfiltration_or_corruption": "exfiltration",
+        "expected": [
+            {
+                "CC_NUMBER": "987654321",
+                "CC_TYPE": "VISA",
+                "COOKIE": "",
+                "FIRST_NAME": "Joe",
+                "LAST_NAME": "Snow",
+                "LOGIN_COUNT": "0",
+                "USERID": "101"
+            },
+            {
+                "CC_NUMBER": "2234200065411",
+                "CC_TYPE": "MC",
+                "COOKIE": "",
+                "FIRST_NAME": "Joe",
+                "LAST_NAME": "Snow",
+                "LOGIN_COUNT": "0",
+                "USERID": "101"
+            }
+        ],
+        "legit_query": "0",
+        "name_of_lesson": "Assignment 5b",
+        "obtained": [],
+        "tainted_query": "01' OR '1'='1' -- "
+    },
+    {
+        "exfiltration_or_corruption": "exfiltration",
+        "expected": [
+            {
+                "CC_NUMBER": "987654321",
+                "CC_TYPE": "VISA",
+                "COOKIE": "",
+                "FIRST_NAME": "Joe",
+                "LAST_NAME": "Snow",
+                "LOGIN_COUNT": "0",
+                "USERID": "101"
+            },
+            {
+                "CC_NUMBER": "2234200065411",
+                "CC_TYPE": "MC",
+                "COOKIE": "",
+                "FIRST_NAME": "Joe",
+                "LAST_NAME": "Snow",
+                "LOGIN_COUNT": "0",
+                "USERID": "101"
+            }
+        ],
+        "legit_query": "0",
+        "name_of_lesson": "Assignment 5b",
+        "obtained": [],
+        "tainted_query": "0' OR ''='"
+    },
+    {
+        "exfiltration_or_corruption": "exfiltration",
+        "expected": [
+            {
+                "CC_NUMBER": "987654321",
+                "CC_TYPE": "VISA",
+                "COOKIE": "",
+                "FIRST_NAME": "Joe",
+                "LAST_NAME": "Snow",
+                "LOGIN_COUNT": "0",
+                "USERID": "101"
+            },
+            {
+                "CC_NUMBER": "2234200065411",
+                "CC_TYPE": "MC",
+                "COOKIE": "",
+                "FIRST_NAME": "Joe",
+                "LAST_NAME": "Snow",
+                "LOGIN_COUNT": "0",
+                "USERID": "101"
+            }
+        ],
+        "legit_query": "101",
+        "name_of_lesson": "Assignment 5b",
+        "obtained": [],
+        "tainted_query": "1011' OR '1'='1"
+    },
+    {
+        "exfiltration_or_corruption": "exfiltration",
+        "expected": [
+            {
+                "CC_NUMBER": "987654321",
+                "CC_TYPE": "VISA",
+                "COOKIE": "",
+                "FIRST_NAME": "Joe",
+                "LAST_NAME": "Snow",
+                "LOGIN_COUNT": "0",
+                "USERID": "101"
+            },
+            {
+                "CC_NUMBER": "2234200065411",
+                "CC_TYPE": "MC",
+                "COOKIE": "",
+                "FIRST_NAME": "Joe",
+                "LAST_NAME": "Snow",
+                "LOGIN_COUNT": "0",
+                "USERID": "101"
+            }
+        ],
+        "legit_query": "101",
+        "name_of_lesson": "Assignment 5b",
+        "obtained": [],
+        "tainted_query": "1011' OR '1'='1' -- "
+    },
+    {
+        "exfiltration_or_corruption": "exfiltration",
+        "expected": [
+            {
+                "CC_NUMBER": "987654321",
+                "CC_TYPE": "VISA",
+                "COOKIE": "",
+                "FIRST_NAME": "Joe",
+                "LAST_NAME": "Snow",
+                "LOGIN_COUNT": "0",
+                "USERID": "101"
+            },
+            {
+                "CC_NUMBER": "2234200065411",
+                "CC_TYPE": "MC",
+                "COOKIE": "",
+                "FIRST_NAME": "Joe",
+                "LAST_NAME": "Snow",
+                "LOGIN_COUNT": "0",
+                "USERID": "101"
+            }
+        ],
+        "legit_query": "101",
+        "name_of_lesson": "Assignment 5b",
+        "obtained": [],
+        "tainted_query": "101' OR ''='"
+    },
+    {
+        "exfiltration_or_corruption": "exfiltration",
+        "expected": [
+            {
                 "AUTH_TAN": "3SL99A",
                 "DEPARTMENT": "Marketing",
                 "FIRST_NAME": "John",
@@ -233,7 +431,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "Smith",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -241,7 +480,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "Smith",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -249,7 +529,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "Smith",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -257,7 +578,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "Smith",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -265,7 +627,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "Smith",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -273,7 +676,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "Smith",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -281,7 +725,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "Smith",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -289,7 +774,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "Smith",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -297,7 +823,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "Smith",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -305,7 +872,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "Smith",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -313,7 +921,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "3SL99A",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -321,7 +970,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "3SL99A",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -329,7 +1019,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "3SL99A",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -337,7 +1068,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "3SL99A",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -345,7 +1117,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "3SL99A",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -353,7 +1166,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "3SL99A",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -361,7 +1215,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "3SL99A",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -369,7 +1264,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "3SL99A",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -377,7 +1313,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "3SL99A",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
@@ -385,7 +1362,48 @@
     },
     {
         "exfiltration_or_corruption": "corruption",
-        "expected": "[{\"USERID\":\"32147\",\"FIRST_NAME\":\"Paulina\",\"LAST_NAME\":\"Travers\",\"DEPARTMENT\":\"Accounting\",\"SALARY\":\"46000.00\",\"AUTH_TAN\":\"P45JSI\"},{\"USERID\":\"34477\",\"FIRST_NAME\":\"Abraham\",\"LAST_NAME\":\"Holman\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"50000.00\",\"AUTH_TAN\":\"UU2ALK\"},{\"USERID\":\"37648\",\"FIRST_NAME\":\"John\",\"LAST_NAME\":\"Smith\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"64350.00\",\"AUTH_TAN\":\"3SL99A\"},{\"USERID\":\"89762\",\"FIRST_NAME\":\"Tobi\",\"LAST_NAME\":\"Barnett\",\"DEPARTMENT\":\"Development\",\"SALARY\":\"77000.00\",\"AUTH_TAN\":\"TA9LL1\"},{\"USERID\":\"96134\",\"FIRST_NAME\":\"Bob\",\"LAST_NAME\":\"Franco\",\"DEPARTMENT\":\"Marketing\",\"SALARY\":\"83700.00\",\"AUTH_TAN\":\"LO9S2V\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "legit_query": "3SL99A",
         "name_of_lesson": "Assignment 5a",
         "obtained": "user lacks privilege or object not found: EMPLOYEES",
