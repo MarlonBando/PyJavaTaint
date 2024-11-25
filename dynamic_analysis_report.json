@@ -1,8 +1,8 @@
 {
-    "execution_time": 0.7121403217315674,
+    "execution_time": 0.7538571357727051,
     "vulnerabilities_found": [
         {
-            "execution_time": 0.20655584335327148,
+            "execution_time": 0.16990160942077637,
             "vulnerability_list": [
                 {
                     "exfiltration_or_corruption": "exfiltration",
@@ -43,7 +43,7 @@
             ]
         },
         {
-            "execution_time": 0.24666666984558105,
+            "execution_time": 0.30568885803222656,
             "vulnerability_list": [
                 {
                     "exfiltration_or_corruption": "exfiltration",
@@ -210,7 +210,7 @@
             ]
         },
         {
-            "execution_time": 0.2588973045349121,
+            "execution_time": 0.2782409191131592,
             "vulnerability_list": [
                 {
                     "exfiltration_or_corruption": "exfiltration",
