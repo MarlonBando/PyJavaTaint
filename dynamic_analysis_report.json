@@ -1,1412 +1,1430 @@
-[
-    {
-        "exfiltration_or_corruption": "exfiltration",
-        "expected": [
-            {
-                "DEPARTMENT": "Marketing"
-            }
-        ],
-        "legit_query": "Select department from employees where last_name = 'Franco'",
-        "name_of_lesson": "Lesson 2",
-        "obtained": [],
-        "tainted_query": "Select department from employees where last_name = 'Franco'1' OR '1'='1"
-    },
-    {
-        "exfiltration_or_corruption": "exfiltration",
-        "expected": [
-            {
-                "DEPARTMENT": "Marketing"
-            }
-        ],
-        "legit_query": "Select department from employees where last_name = 'Franco'",
-        "name_of_lesson": "Lesson 2",
-        "obtained": [],
-        "tainted_query": "Select department from employees where last_name = 'Franco'1' OR '1'='1' -- "
-    },
-    {
-        "exfiltration_or_corruption": "exfiltration",
-        "expected": [
-            {
-                "DEPARTMENT": "Marketing"
-            }
-        ],
-        "legit_query": "Select department from employees where last_name = 'Franco'",
-        "name_of_lesson": "Lesson 2",
-        "obtained": [],
-        "tainted_query": "Select department from employees where last_name = 'Franco'' OR ''='"
-    },
-    {
-        "exfiltration_or_corruption": "exfiltration",
-        "expected": [
-            {
-                "CC_NUMBER": "987654321",
-                "CC_TYPE": "VISA",
-                "COOKIE": "",
-                "FIRST_NAME": "Joe",
-                "LAST_NAME": "Snow",
-                "LOGIN_COUNT": "0",
-                "USERID": "101"
-            },
-            {
-                "CC_NUMBER": "2234200065411",
-                "CC_TYPE": "MC",
-                "COOKIE": "",
-                "FIRST_NAME": "Joe",
-                "LAST_NAME": "Snow",
-                "LOGIN_COUNT": "0",
-                "USERID": "101"
-            }
-        ],
-        "legit_query": "0",
-        "name_of_lesson": "Assignment 5b",
-        "obtained": [],
-        "tainted_query": "01' OR '1'='1"
-    },
-    {
-        "exfiltration_or_corruption": "exfiltration",
-        "expected": [
-            {
-                "CC_NUMBER": "987654321",
-                "CC_TYPE": "VISA",
-                "COOKIE": "",
-                "FIRST_NAME": "Joe",
-                "LAST_NAME": "Snow",
-                "LOGIN_COUNT": "0",
-                "USERID": "101"
-            },
-            {
-                "CC_NUMBER": "2234200065411",
-                "CC_TYPE": "MC",
-                "COOKIE": "",
-                "FIRST_NAME": "Joe",
-                "LAST_NAME": "Snow",
-                "LOGIN_COUNT": "0",
-                "USERID": "101"
-            }
-        ],
-        "legit_query": "0",
-        "name_of_lesson": "Assignment 5b",
-        "obtained": [],
-        "tainted_query": "01' OR '1'='1' -- "
-    },
-    {
-        "exfiltration_or_corruption": "exfiltration",
-        "expected": [
-            {
-                "CC_NUMBER": "987654321",
-                "CC_TYPE": "VISA",
-                "COOKIE": "",
-                "FIRST_NAME": "Joe",
-                "LAST_NAME": "Snow",
-                "LOGIN_COUNT": "0",
-                "USERID": "101"
-            },
-            {
-                "CC_NUMBER": "2234200065411",
-                "CC_TYPE": "MC",
-                "COOKIE": "",
-                "FIRST_NAME": "Joe",
-                "LAST_NAME": "Snow",
-                "LOGIN_COUNT": "0",
-                "USERID": "101"
-            }
-        ],
-        "legit_query": "0",
-        "name_of_lesson": "Assignment 5b",
-        "obtained": [],
-        "tainted_query": "0' OR ''='"
-    },
-    {
-        "exfiltration_or_corruption": "exfiltration",
-        "expected": [
-            {
-                "CC_NUMBER": "987654321",
-                "CC_TYPE": "VISA",
-                "COOKIE": "",
-                "FIRST_NAME": "Joe",
-                "LAST_NAME": "Snow",
-                "LOGIN_COUNT": "0",
-                "USERID": "101"
-            },
-            {
-                "CC_NUMBER": "2234200065411",
-                "CC_TYPE": "MC",
-                "COOKIE": "",
-                "FIRST_NAME": "Joe",
-                "LAST_NAME": "Snow",
-                "LOGIN_COUNT": "0",
-                "USERID": "101"
-            }
-        ],
-        "legit_query": "101",
-        "name_of_lesson": "Assignment 5b",
-        "obtained": [],
-        "tainted_query": "1011' OR '1'='1"
-    },
-    {
-        "exfiltration_or_corruption": "exfiltration",
-        "expected": [
-            {
-                "CC_NUMBER": "987654321",
-                "CC_TYPE": "VISA",
-                "COOKIE": "",
-                "FIRST_NAME": "Joe",
-                "LAST_NAME": "Snow",
-                "LOGIN_COUNT": "0",
-                "USERID": "101"
-            },
-            {
-                "CC_NUMBER": "2234200065411",
-                "CC_TYPE": "MC",
-                "COOKIE": "",
-                "FIRST_NAME": "Joe",
-                "LAST_NAME": "Snow",
-                "LOGIN_COUNT": "0",
-                "USERID": "101"
-            }
-        ],
-        "legit_query": "101",
-        "name_of_lesson": "Assignment 5b",
-        "obtained": [],
-        "tainted_query": "1011' OR '1'='1' -- "
-    },
-    {
-        "exfiltration_or_corruption": "exfiltration",
-        "expected": [
-            {
-                "CC_NUMBER": "987654321",
-                "CC_TYPE": "VISA",
-                "COOKIE": "",
-                "FIRST_NAME": "Joe",
-                "LAST_NAME": "Snow",
-                "LOGIN_COUNT": "0",
-                "USERID": "101"
-            },
-            {
-                "CC_NUMBER": "2234200065411",
-                "CC_TYPE": "MC",
-                "COOKIE": "",
-                "FIRST_NAME": "Joe",
-                "LAST_NAME": "Snow",
-                "LOGIN_COUNT": "0",
-                "USERID": "101"
-            }
-        ],
-        "legit_query": "101",
-        "name_of_lesson": "Assignment 5b",
-        "obtained": [],
-        "tainted_query": "101' OR ''='"
-    },
-    {
-        "exfiltration_or_corruption": "exfiltration",
-        "expected": [
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            }
-        ],
-        "legit_query": "Smith",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "tainted_query": "Smith1' OR '1'='1' -- "
-    },
-    {
-        "exfiltration_or_corruption": "exfiltration",
-        "expected": [
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            }
-        ],
-        "legit_query": "3SL99A",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "tainted_query": "3SL99A1' OR '1'='1"
-    },
-    {
-        "exfiltration_or_corruption": "exfiltration",
-        "expected": [
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            }
-        ],
-        "legit_query": "3SL99A",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "tainted_query": "3SL99A1' OR '1'='1' -- "
-    },
-    {
-        "exfiltration_or_corruption": "exfiltration",
-        "expected": [
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            }
-        ],
-        "legit_query": "3SL99A",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "tainted_query": "3SL99A' OR ''='"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "Smith",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "Smith'; DROP TABLE employees;--"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "Smith",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "Smith'; ALTER TABLE employees ADD COLUMN hacked_text_column TEXT; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "Smith",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "Smith'; ALTER TABLE employees ADD COLUMN hacked_int_column INT; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "Smith",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "Smith'; INSERT INTO employees (userid,first_name,last_name,department,salary,auth_tan) VALUES (1,hack_string,hack_string,hack_string,1,hack_string); --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "Smith",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN userid; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "Smith",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN first_name; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "Smith",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN last_name; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "Smith",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN department; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "Smith",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN salary; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "Smith",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN auth_tan; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "3SL99A",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "3SL99A'; DROP TABLE employees;--"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "3SL99A",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "3SL99A'; ALTER TABLE employees ADD COLUMN hacked_text_column TEXT; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "3SL99A",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "3SL99A'; ALTER TABLE employees ADD COLUMN hacked_int_column INT; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "3SL99A",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "3SL99A'; INSERT INTO employees (userid,first_name,last_name,department,salary,auth_tan) VALUES (1,hack_string,hack_string,hack_string,1,hack_string); --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "3SL99A",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN userid; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "3SL99A",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN first_name; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "3SL99A",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN last_name; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "3SL99A",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN department; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "3SL99A",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN salary; --"
-    },
-    {
-        "exfiltration_or_corruption": "corruption",
-        "expected": [
-            {
-                "AUTH_TAN": "P45JSI",
-                "DEPARTMENT": "Accounting",
-                "FIRST_NAME": "Paulina",
-                "LAST_NAME": "Travers",
-                "SALARY": "46000.00",
-                "USERID": "32147"
-            },
-            {
-                "AUTH_TAN": "UU2ALK",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Abraham",
-                "LAST_NAME": "Holman",
-                "SALARY": "50000.00",
-                "USERID": "34477"
-            },
-            {
-                "AUTH_TAN": "3SL99A",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "John",
-                "LAST_NAME": "Smith",
-                "SALARY": "64350.00",
-                "USERID": "37648"
-            },
-            {
-                "AUTH_TAN": "TA9LL1",
-                "DEPARTMENT": "Development",
-                "FIRST_NAME": "Tobi",
-                "LAST_NAME": "Barnett",
-                "SALARY": "77000.00",
-                "USERID": "89762"
-            },
-            {
-                "AUTH_TAN": "LO9S2V",
-                "DEPARTMENT": "Marketing",
-                "FIRST_NAME": "Bob",
-                "LAST_NAME": "Franco",
-                "SALARY": "83700.00",
-                "USERID": "96134"
-            }
-        ],
-        "legit_query": "3SL99A",
-        "name_of_lesson": "Assignment 5a",
-        "obtained": "user lacks privilege or object not found: EMPLOYEES",
-        "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN auth_tan; --"
-    }
-]
+{
+    "execution_time": 0.7121403217315674,
+    "vulnerabilities_found": [
+        {
+            "execution_time": 0.20655584335327148,
+            "vulnerability_list": [
+                {
+                    "exfiltration_or_corruption": "exfiltration",
+                    "expected": [
+                        {
+                            "DEPARTMENT": "Marketing"
+                        }
+                    ],
+                    "legit_query": "Select department from employees where last_name = 'Franco'",
+                    "name_of_lesson": "Lesson 2",
+                    "obtained": [],
+                    "tainted_query": "Select department from employees where last_name = 'Franco'1' OR '1'='1"
+                },
+                {
+                    "exfiltration_or_corruption": "exfiltration",
+                    "expected": [
+                        {
+                            "DEPARTMENT": "Marketing"
+                        }
+                    ],
+                    "legit_query": "Select department from employees where last_name = 'Franco'",
+                    "name_of_lesson": "Lesson 2",
+                    "obtained": [],
+                    "tainted_query": "Select department from employees where last_name = 'Franco'1' OR '1'='1' -- "
+                },
+                {
+                    "exfiltration_or_corruption": "exfiltration",
+                    "expected": [
+                        {
+                            "DEPARTMENT": "Marketing"
+                        }
+                    ],
+                    "legit_query": "Select department from employees where last_name = 'Franco'",
+                    "name_of_lesson": "Lesson 2",
+                    "obtained": [],
+                    "tainted_query": "Select department from employees where last_name = 'Franco'' OR ''='"
+                }
+            ]
+        },
+        {
+            "execution_time": 0.24666666984558105,
+            "vulnerability_list": [
+                {
+                    "exfiltration_or_corruption": "exfiltration",
+                    "expected": [
+                        {
+                            "CC_NUMBER": "987654321",
+                            "CC_TYPE": "VISA",
+                            "COOKIE": "",
+                            "FIRST_NAME": "Joe",
+                            "LAST_NAME": "Snow",
+                            "LOGIN_COUNT": "0",
+                            "USERID": "101"
+                        },
+                        {
+                            "CC_NUMBER": "2234200065411",
+                            "CC_TYPE": "MC",
+                            "COOKIE": "",
+                            "FIRST_NAME": "Joe",
+                            "LAST_NAME": "Snow",
+                            "LOGIN_COUNT": "0",
+                            "USERID": "101"
+                        }
+                    ],
+                    "legit_query": "0",
+                    "name_of_lesson": "Assignment 5b",
+                    "obtained": [],
+                    "tainted_query": "01' OR '1'='1"
+                },
+                {
+                    "exfiltration_or_corruption": "exfiltration",
+                    "expected": [
+                        {
+                            "CC_NUMBER": "987654321",
+                            "CC_TYPE": "VISA",
+                            "COOKIE": "",
+                            "FIRST_NAME": "Joe",
+                            "LAST_NAME": "Snow",
+                            "LOGIN_COUNT": "0",
+                            "USERID": "101"
+                        },
+                        {
+                            "CC_NUMBER": "2234200065411",
+                            "CC_TYPE": "MC",
+                            "COOKIE": "",
+                            "FIRST_NAME": "Joe",
+                            "LAST_NAME": "Snow",
+                            "LOGIN_COUNT": "0",
+                            "USERID": "101"
+                        }
+                    ],
+                    "legit_query": "0",
+                    "name_of_lesson": "Assignment 5b",
+                    "obtained": [],
+                    "tainted_query": "01' OR '1'='1' -- "
+                },
+                {
+                    "exfiltration_or_corruption": "exfiltration",
+                    "expected": [
+                        {
+                            "CC_NUMBER": "987654321",
+                            "CC_TYPE": "VISA",
+                            "COOKIE": "",
+                            "FIRST_NAME": "Joe",
+                            "LAST_NAME": "Snow",
+                            "LOGIN_COUNT": "0",
+                            "USERID": "101"
+                        },
+                        {
+                            "CC_NUMBER": "2234200065411",
+                            "CC_TYPE": "MC",
+                            "COOKIE": "",
+                            "FIRST_NAME": "Joe",
+                            "LAST_NAME": "Snow",
+                            "LOGIN_COUNT": "0",
+                            "USERID": "101"
+                        }
+                    ],
+                    "legit_query": "0",
+                    "name_of_lesson": "Assignment 5b",
+                    "obtained": [],
+                    "tainted_query": "0' OR ''='"
+                },
+                {
+                    "exfiltration_or_corruption": "exfiltration",
+                    "expected": [
+                        {
+                            "CC_NUMBER": "987654321",
+                            "CC_TYPE": "VISA",
+                            "COOKIE": "",
+                            "FIRST_NAME": "Joe",
+                            "LAST_NAME": "Snow",
+                            "LOGIN_COUNT": "0",
+                            "USERID": "101"
+                        },
+                        {
+                            "CC_NUMBER": "2234200065411",
+                            "CC_TYPE": "MC",
+                            "COOKIE": "",
+                            "FIRST_NAME": "Joe",
+                            "LAST_NAME": "Snow",
+                            "LOGIN_COUNT": "0",
+                            "USERID": "101"
+                        }
+                    ],
+                    "legit_query": "101",
+                    "name_of_lesson": "Assignment 5b",
+                    "obtained": [],
+                    "tainted_query": "1011' OR '1'='1"
+                },
+                {
+                    "exfiltration_or_corruption": "exfiltration",
+                    "expected": [
+                        {
+                            "CC_NUMBER": "987654321",
+                            "CC_TYPE": "VISA",
+                            "COOKIE": "",
+                            "FIRST_NAME": "Joe",
+                            "LAST_NAME": "Snow",
+                            "LOGIN_COUNT": "0",
+                            "USERID": "101"
+                        },
+                        {
+                            "CC_NUMBER": "2234200065411",
+                            "CC_TYPE": "MC",
+                            "COOKIE": "",
+                            "FIRST_NAME": "Joe",
+                            "LAST_NAME": "Snow",
+                            "LOGIN_COUNT": "0",
+                            "USERID": "101"
+                        }
+                    ],
+                    "legit_query": "101",
+                    "name_of_lesson": "Assignment 5b",
+                    "obtained": [],
+                    "tainted_query": "1011' OR '1'='1' -- "
+                },
+                {
+                    "exfiltration_or_corruption": "exfiltration",
+                    "expected": [
+                        {
+                            "CC_NUMBER": "987654321",
+                            "CC_TYPE": "VISA",
+                            "COOKIE": "",
+                            "FIRST_NAME": "Joe",
+                            "LAST_NAME": "Snow",
+                            "LOGIN_COUNT": "0",
+                            "USERID": "101"
+                        },
+                        {
+                            "CC_NUMBER": "2234200065411",
+                            "CC_TYPE": "MC",
+                            "COOKIE": "",
+                            "FIRST_NAME": "Joe",
+                            "LAST_NAME": "Snow",
+                            "LOGIN_COUNT": "0",
+                            "USERID": "101"
+                        }
+                    ],
+                    "legit_query": "101",
+                    "name_of_lesson": "Assignment 5b",
+                    "obtained": [],
+                    "tainted_query": "101' OR ''='"
+                }
+            ]
+        },
+        {
+            "execution_time": 0.2588973045349121,
+            "vulnerability_list": [
+                {
+                    "exfiltration_or_corruption": "exfiltration",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        }
+                    ],
+                    "legit_query": "Smith",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "tainted_query": "Smith1' OR '1'='1' -- "
+                },
+                {
+                    "exfiltration_or_corruption": "exfiltration",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        }
+                    ],
+                    "legit_query": "3SL99A",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "tainted_query": "3SL99A1' OR '1'='1"
+                },
+                {
+                    "exfiltration_or_corruption": "exfiltration",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        }
+                    ],
+                    "legit_query": "3SL99A",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "tainted_query": "3SL99A1' OR '1'='1' -- "
+                },
+                {
+                    "exfiltration_or_corruption": "exfiltration",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        }
+                    ],
+                    "legit_query": "3SL99A",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "tainted_query": "3SL99A' OR ''='"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "Smith",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "Smith'; DROP TABLE employees;--"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "Smith",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "Smith'; ALTER TABLE employees ADD COLUMN hacked_text_column TEXT; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "Smith",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "Smith'; ALTER TABLE employees ADD COLUMN hacked_int_column INT; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "Smith",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "Smith'; INSERT INTO employees (userid,first_name,last_name,department,salary,auth_tan) VALUES (1,hack_string,hack_string,hack_string,1,hack_string); --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "Smith",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN userid; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "Smith",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN first_name; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "Smith",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN last_name; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "Smith",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN department; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "Smith",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN salary; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "Smith",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "Smith'; ALTER TABLE employees DROP COLUMN auth_tan; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "3SL99A",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "3SL99A'; DROP TABLE employees;--"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "3SL99A",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "3SL99A'; ALTER TABLE employees ADD COLUMN hacked_text_column TEXT; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "3SL99A",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "3SL99A'; ALTER TABLE employees ADD COLUMN hacked_int_column INT; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "3SL99A",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "3SL99A'; INSERT INTO employees (userid,first_name,last_name,department,salary,auth_tan) VALUES (1,hack_string,hack_string,hack_string,1,hack_string); --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "3SL99A",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN userid; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "3SL99A",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN first_name; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "3SL99A",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN last_name; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "3SL99A",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN department; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "3SL99A",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN salary; --"
+                },
+                {
+                    "exfiltration_or_corruption": "corruption",
+                    "expected": [
+                        {
+                            "AUTH_TAN": "P45JSI",
+                            "DEPARTMENT": "Accounting",
+                            "FIRST_NAME": "Paulina",
+                            "LAST_NAME": "Travers",
+                            "SALARY": "46000.00",
+                            "USERID": "32147"
+                        },
+                        {
+                            "AUTH_TAN": "UU2ALK",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Abraham",
+                            "LAST_NAME": "Holman",
+                            "SALARY": "50000.00",
+                            "USERID": "34477"
+                        },
+                        {
+                            "AUTH_TAN": "3SL99A",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "John",
+                            "LAST_NAME": "Smith",
+                            "SALARY": "64350.00",
+                            "USERID": "37648"
+                        },
+                        {
+                            "AUTH_TAN": "TA9LL1",
+                            "DEPARTMENT": "Development",
+                            "FIRST_NAME": "Tobi",
+                            "LAST_NAME": "Barnett",
+                            "SALARY": "77000.00",
+                            "USERID": "89762"
+                        },
+                        {
+                            "AUTH_TAN": "LO9S2V",
+                            "DEPARTMENT": "Marketing",
+                            "FIRST_NAME": "Bob",
+                            "LAST_NAME": "Franco",
+                            "SALARY": "83700.00",
+                            "USERID": "96134"
+                        }
+                    ],
+                    "legit_query": "3SL99A",
+                    "name_of_lesson": "Assignment 5a",
+                    "obtained": "user lacks privilege or object not found: EMPLOYEES",
+                    "tainted_query": "3SL99A'; ALTER TABLE employees DROP COLUMN auth_tan; --"
+                }
+            ]
+        }
+    ]
+}

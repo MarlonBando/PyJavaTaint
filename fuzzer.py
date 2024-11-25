@@ -4,7 +4,8 @@ import query_list_generator as qlg
 from typing import Dict, Any
 import json
 import wg_interface
-from report_writer import Vulnerability_report, Vulnerability
+from report_writer import Vulnerability_report, Vulnerability, Endpoint_review
+import time
 
 class Fuzzer:
 
@@ -23,16 +24,26 @@ class Fuzzer:
 
 
     def fuzz_all_endpoints(self):
+
+        global_start_time: float = time.time()
         for endpoint in self.endpoints:
             self._fuzz_endpoint(endpoint)
+        global_end_time: float = time.time()
+        global_execution_time:float = global_end_time - global_start_time
+        self.vulnerability_report.global_execution_time = global_execution_time
         self.vulnerability_report.write_report_to_file()
 
 
 
     def fuzz_single_endpoint(self, endpoint_name):
+
+        global_start_time: float = time.time()
         for endpoint in self.endpoints:
             if endpoint.name == endpoint_name:
                 self._fuzz_endpoint(endpoint)
+                global_end_time: float = time.time()
+                global_execution_time:float = global_end_time - global_start_time
+                self.vulnerability_report.global_execution_time = global_execution_time
                 self.vulnerability_report.write_report_to_file()
                 return
         raise Exception(f'Endpoint {endpoint_name} not found')
@@ -41,9 +52,14 @@ class Fuzzer:
 
     def _fuzz_endpoint(self, endpoint: APIEndpoint) -> None:
 
+            self.vulnerability_report.add_new_endpoint()
+            start_time: float = time.time()
             wg_interface.recreate_database(self.basic_url+self.direct_query_addr, self.jsessionid)
             self._fuzz_endpoint_with_exfiltration(endpoint)
             self._fuzz_endpoint_with_corruption(endpoint)
+            end_time: float = time.time()
+            execution_time: float = end_time - start_time
+            self.vulnerability_report.set_exec_time_of_last_endpoint(execution_time)
 
 
 
@@ -57,7 +73,7 @@ class Fuzzer:
                 tainted_result = self._get_tainted_result(url, endpoint, fuzzed_parameter, tainted_query)
                 if tainted_result != legit_json_result:
 
-                    self.vulnerability_report.add_vulnerability( Vulnerability("exfiltration", endpoint.name, fuzzed_parameter.default_input, tainted_query, legit_json_result, tainted_result) )
+                    self.vulnerability_report.add_vuln_to_last_endpoint( Vulnerability("exfiltration", endpoint.name, fuzzed_parameter.default_input, tainted_query, legit_json_result, tainted_result) )
 
 
 
@@ -74,7 +90,7 @@ class Fuzzer:
                 new_db_snapshot = self.get_db_snapshot()
                 if not sane_db_snapshot == new_db_snapshot:
 
-                    self.vulnerability_report.add_vulnerability( Vulnerability("corruption", endpoint.name, fuzzed_parameter.default_input, tainted_query, sane_db_snapshot, new_db_snapshot) )
+                    self.vulnerability_report.add_vuln_to_last_endpoint( Vulnerability("corruption", endpoint.name, fuzzed_parameter.default_input, tainted_query, sane_db_snapshot, new_db_snapshot) )
 
 
 
