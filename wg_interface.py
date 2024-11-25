@@ -1,14 +1,41 @@
 import re
 import json
+import requests
 
-def clean_input(input_string):
-    """
-    Cleans the input string by removing escape characters and unnecessary whitespace.
-    """
-    return input_string.replace("\\r", "").replace("\\n", "").replace("\\", "").strip()
+def query_webgoat(url, request_data, jsessionid, name_of_lesson):
+     
+    request_cookies = {"JSESSIONID": jsessionid}
+    raw_webgoat_output = requests.post(url, data=request_data, cookies=request_cookies)
+    return webgoat_to_json(name_of_lesson, raw_webgoat_output.text)
 
-def parse_assignment_5b(text):
-    # Extract headers and values for each column
+
+
+def wg_direct_database_check(direct_url: str, direct_query: str, jsessionid: str):
+
+    request_data = {"query": direct_query}
+    request_cookies = {"JSESSIONID": jsessionid}
+    raw_webgoat_output = requests.post(direct_url, data=request_data, cookies=request_cookies)
+    print(raw_webgoat_output)
+    return raw_webgoat_output.text
+
+
+
+
+def webgoat_to_json(name_of_lesson,raw_webgoat_output_text):
+    match name_of_lesson:
+        case "example1":
+            result = {"example1": raw_webgoat_output_text}
+        case "Assignment 5b":
+            return parse_assignment_5b(raw_webgoat_output_text)
+        case "Assignment 5a":
+            return parse_assignment_5a(raw_webgoat_output_text)
+        case "Lesson 2":
+            return parse_lesson_2(raw_webgoat_output_text)
+        case _:
+            raise Exception(f"Unhandled lesson : {name_of_lesson}")
+
+
+def parse_assignment_5b(raw_webgoat_output):
     patterns = {
         'USERID': r'(\d+),\s*[^,]+,\s*[^,]+,\s*[^,]+,\s*[^,]+,\s*[^,]*,\s*\d+,\s*<br',
         'FIRST_NAME': r'\d+,\s*([^,]+),\s*[^,]+,\s*[^,]+,\s*[^,]+,\s*[^,]*,\s*\d+,\s*<br',
@@ -20,24 +47,24 @@ def parse_assignment_5b(text):
     }
     
     data = []
-    # Find all matches for each row
     first_pattern = patterns['USERID']
-    rows_count = len(re.findall(first_pattern, text))
+    rows_count = len(re.findall(first_pattern, raw_webgoat_output))
     
     for i in range(rows_count):
         row_data = {}
         for column, pattern in patterns.items():
-            matches = re.findall(pattern, text)
+            matches = re.findall(pattern, raw_webgoat_output)
             if matches and i < len(matches):
                 row_data[column] = matches[i]
         data.append(row_data)
     
     return json.dumps(data)
 
-def parse_assignment_5a(text):
-    # Clean and extract the 'output' field from JSON
-    data = json.loads(text)
-    table_text = clean_input(data['output'])
+
+
+def parse_assignment_5a(raw_webgoat_output):
+    data = json.loads(raw_webgoat_output)
+    table_text = remove_white_spaces(data['output'])
 
     patterns = {
         'USERID': r'<td>(\d+)</td>',
@@ -59,30 +86,21 @@ def parse_assignment_5a(text):
 
     return json.dumps(data)
 
-def parse_lesson_2(text):
-    text = clean_input(text)
+
+
+def parse_lesson_2(raw_webgoat_output):
+    raw_webgoat_output = remove_white_spaces(raw_webgoat_output)
 
     header_pattern = r"<th>(.*?)</th>"
     row_pattern = r"<td>(.*?)</td>"
 
-    headers = re.findall(header_pattern, text)
-    rows = re.findall(row_pattern, text)
+    headers = re.findall(header_pattern, raw_webgoat_output)
+    rows = re.findall(row_pattern, raw_webgoat_output)
     results = [{headers[0]: value} for value in rows] if headers else []
 
     return json.dumps(results)
 
-def webgoat_to_json(name,text):
-    match name:
-        case "example1":
-            # Handle case for "example1"
-            result = {"example1": text}
-        case "Assignment 5b":
-            return parse_assignment_5b(text)
-        case "Assignment 5a":
-            return parse_assignment_5a(text)
-        case "Lesson 2":
-            return parse_lesson_2(text)
-        case _:
-            # Handle default case
-            result = {"default": text}
-    return ""
+
+
+def remove_white_spaces(input_string):
+    return input_string.replace("\\r", "").replace("\\n", "").replace("\\", "").strip()
