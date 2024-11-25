@@ -20,7 +20,7 @@ def wg_direct_database_check(direct_url: str, direct_query: str, jsessionid: str
 
 
 
-def webgoat_to_json(name_of_lesson,raw_webgoat_output_text):
+def webgoat_to_json(name_of_lesson, raw_webgoat_output_text):
     match name_of_lesson:
         case "direct_query":
             return parse_direct_query(raw_webgoat_output_text)
@@ -68,7 +68,7 @@ def parse_assignment_5b(raw_webgoat_output_text):
                 row_data[column] = matches[i]
         data.append(row_data)
     
-    return json.dumps(data)
+    return data
 
 
 
@@ -80,24 +80,22 @@ def parse_assignment_5a(raw_webgoat_output_text):
         return data        
 
     patterns = {
-        'USERID': r'<td>(\d+)</td>',
-        'FIRST_NAME': r'<td>(\w+)</td>.*?<td>\w+</td>',
-        'LAST_NAME': r'<td>\w+</td><td>(\w+)</td>',
-        'DEPARTMENT': r'<td>\w+</td><td>\w+</td><td>(\w+)</td>',
-        'SALARY': r'<td>\w+</td><td>\w+</td><td>\w+</td><td>(\d+)</td>',
-        'AUTH_TAN': r'<td>\w+</td><td>\w+</td><td>\w+</td><td>\d+</td><td>(\w+)</td>',
-        'PHONE': r'<td>\w+</td><td>\w+</td><td>\w+</td><td>\d+</td><td>\w+</td><td>(.*?)</td>'
+        'USERID': r'<tr><td>(\d+)</td>',
+        'FIRST_NAME': r'<tr><td>\d+</td><td>(\w+)</td>',
+        'LAST_NAME': r'<tr><td>\d+</td><td>\w+</td><td>(\w+)</td>',
+        'DEPARTMENT': r'<tr><td>\d+</td><td>\w+</td><td>\w+</td><td>(\w+)</td>',
+        'SALARY': r'<tr><td>\d+</td><td>\w+</td><td>\w+</td><td>\w+</td><td>([\d\.]+)</td>',
+        'AUTH_TAN': r'<tr><td>\d+</td><td>\w+</td><td>\w+</td><td>\w+</td><td>[\d\.]+</td><td>(\w+)</td>'
     }
 
     new_data = []
-    row_data = {}
-    for column, pattern in patterns.items():
-        matches = re.findall(pattern, table_text)
-        if matches:
-            row_data[column] = matches[0]
-    new_data.append(row_data)
+    columns_data = {column: re.findall(pattern, table_text) for column, pattern in patterns.items()}
 
-    return json.dumps(new_data)
+    num_rows = len(columns_data['USERID'])
+    for i in range(num_rows):
+        row_data = {column: columns_data[column][i] for column in columns_data}
+        new_data.append(row_data)
+    return new_data
 
 
 
@@ -111,7 +109,7 @@ def parse_lesson_2(raw_webgoat_output_text):
     rows = re.findall(row_pattern, raw_webgoat_output_text)
     results = [{headers[0]: value} for value in rows] if headers else []
 
-    return json.dumps(results)
+    return results
 
 
 
