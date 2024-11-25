@@ -46,6 +46,7 @@ class Fuzzer:
 
         url: str = self.basic_url + endpoint.suffix
         legit_json_result = self._get_legit_result(url, endpoint)
+        fuzzing_type: str = "exfiltration"
         for fuzzed_parameter in endpoint.parameters:
 
             endpoint_is_injectable = False
@@ -54,7 +55,7 @@ class Fuzzer:
                 tainted_result = self._get_tainted_result(url, endpoint, fuzzed_parameter, tainted_query)
                 if tainted_result != legit_json_result:
 
-                    self.write_injection_to_report(endpoint, fuzzed_parameter, tainted_query, legit_json_result, tainted_result)
+                    self.write_injection_to_report(endpoint, fuzzing_type, fuzzed_parameter, tainted_query, legit_json_result, tainted_result)
                     endpoint_is_injectable = True
             if not endpoint_is_injectable:
 
@@ -67,6 +68,7 @@ class Fuzzer:
 
         url = self.basic_url + endpoint.suffix
         direct_url: str = self.basic_url + self.direct_query_addr
+        fuzzing_type: str = "corruption"
         wg_interface.recreate_database(direct_url, self.jsessionid)
         sane_db_snapshot = self.get_db_snapshot()
         for fuzzed_parameter in endpoint.parameters:
@@ -78,7 +80,7 @@ class Fuzzer:
                 new_db_snapshot = self.get_db_snapshot()
                 if not sane_db_snapshot == new_db_snapshot:
 
-                    self.write_injection_to_report(endpoint, fuzzed_parameter, tainted_query, sane_db_snapshot, new_db_snapshot)
+                    self.write_injection_to_report(endpoint, fuzzing_type, fuzzed_parameter, tainted_query, sane_db_snapshot, new_db_snapshot)
                     injectable = True
             if not injectable:
             
@@ -133,8 +135,8 @@ class Fuzzer:
         with open("fuzz_report.txt", "w") as report_file:
             report_file.write(self.fuzz_report)
 
-    def write_injection_to_report(self, endpoint: APIEndpoint, parameter: Parameter, tainted_query: str, legit_result: str, tainted_result: str):
-        self.fuzz_report += f'\n\nPotential SQL Injection found in {endpoint.name} parameter {parameter.type}\n'
+    def write_injection_to_report(self, endpoint: APIEndpoint, fuzzing_type: str, parameter: Parameter, tainted_query: str, legit_result: str, tainted_result: str):
+        self.fuzz_report += f'\n\nPotential SQL Injection found in {endpoint.name} parameter {parameter.type} with fuzzing type {fuzzing_type}\n'
         self.fuzz_report += f'Original query: {parameter.default_input}\n'
         self.fuzz_report += f'Tainted query: {parameter.default_input + tainted_query}\n'
         self.fuzz_report += f'Legit result: {legit_result}\n'

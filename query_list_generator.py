@@ -117,7 +117,7 @@ def get_default_from_datatype(list_of_datatypes: list[str]) -> list[str]:
   return list_of_defaults
 
 ## TESTS
-if __name__ == '__maine__':
+if __name__ == '__main__':
   basic_query: str = "SELECT * FROM employees"
   column_names = ["name", "wage", "department"]
   datatypes = ["TEXT", "INT", "TEXT"]

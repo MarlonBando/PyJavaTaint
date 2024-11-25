@@ -15,14 +15,15 @@ def wg_direct_database_check(direct_url: str, direct_query: str, jsessionid: str
     request_data = {"query": direct_query}
     request_cookies = {"JSESSIONID": jsessionid}
     raw_webgoat_output = requests.post(direct_url, data=request_data, cookies=request_cookies)
-    print(raw_webgoat_output)
-    return raw_webgoat_output.text
+    return webgoat_to_json("direct_query", raw_webgoat_output.text)
 
 
 
 
 def webgoat_to_json(name_of_lesson,raw_webgoat_output_text):
     match name_of_lesson:
+        case "direct_query":
+            return parse_direct_query(raw_webgoat_output_text)
         case "example1":
             result = {"example1": raw_webgoat_output_text}
         case "Assignment 5b":
@@ -35,7 +36,16 @@ def webgoat_to_json(name_of_lesson,raw_webgoat_output_text):
             raise Exception(f"Unhandled lesson : {name_of_lesson}")
 
 
-def parse_assignment_5b(raw_webgoat_output):
+def parse_direct_query(raw_webgoat_output_text):
+    data = json.loads(raw_webgoat_output_text)
+    if data['output'] != None:
+        table_text = remove_white_spaces(data['output'])
+    else: 
+        return data 
+    return table_text
+
+
+def parse_assignment_5b(raw_webgoat_output_text):
     patterns = {
         'USERID': r'(\d+),\s*[^,]+,\s*[^,]+,\s*[^,]+,\s*[^,]+,\s*[^,]*,\s*\d+,\s*<br',
         'FIRST_NAME': r'\d+,\s*([^,]+),\s*[^,]+,\s*[^,]+,\s*[^,]+,\s*[^,]*,\s*\d+,\s*<br',
@@ -48,12 +58,12 @@ def parse_assignment_5b(raw_webgoat_output):
     
     data = []
     first_pattern = patterns['USERID']
-    rows_count = len(re.findall(first_pattern, raw_webgoat_output))
+    rows_count = len(re.findall(first_pattern, raw_webgoat_output_text))
     
     for i in range(rows_count):
         row_data = {}
         for column, pattern in patterns.items():
-            matches = re.findall(pattern, raw_webgoat_output)
+            matches = re.findall(pattern, raw_webgoat_output_text)
             if matches and i < len(matches):
                 row_data[column] = matches[i]
         data.append(row_data)
@@ -62,9 +72,12 @@ def parse_assignment_5b(raw_webgoat_output):
 
 
 
-def parse_assignment_5a(raw_webgoat_output):
-    data = json.loads(raw_webgoat_output)
-    table_text = remove_white_spaces(data['output'])
+def parse_assignment_5a(raw_webgoat_output_text):
+    data = json.loads(raw_webgoat_output_text)
+    if data['output'] != None:
+        table_text = remove_white_spaces(data['output'])
+    else: 
+        return data        
 
     patterns = {
         'USERID': r'<td>(\d+)</td>',
@@ -76,26 +89,26 @@ def parse_assignment_5a(raw_webgoat_output):
         'PHONE': r'<td>\w+</td><td>\w+</td><td>\w+</td><td>\d+</td><td>\w+</td><td>(.*?)</td>'
     }
 
-    data = []
+    new_data = []
     row_data = {}
     for column, pattern in patterns.items():
         matches = re.findall(pattern, table_text)
         if matches:
             row_data[column] = matches[0]
-    data.append(row_data)
+    new_data.append(row_data)
 
-    return json.dumps(data)
+    return json.dumps(new_data)
 
 
 
-def parse_lesson_2(raw_webgoat_output):
-    raw_webgoat_output = remove_white_spaces(raw_webgoat_output)
+def parse_lesson_2(raw_webgoat_output_text):
+    raw_webgoat_output_text = remove_white_spaces(raw_webgoat_output_text)
 
     header_pattern = r"<th>(.*?)</th>"
     row_pattern = r"<td>(.*?)</td>"
 
-    headers = re.findall(header_pattern, raw_webgoat_output)
-    rows = re.findall(row_pattern, raw_webgoat_output)
+    headers = re.findall(header_pattern, raw_webgoat_output_text)
+    rows = re.findall(row_pattern, raw_webgoat_output_text)
     results = [{headers[0]: value} for value in rows] if headers else []
 
     return json.dumps(results)
@@ -103,9 +116,9 @@ def parse_lesson_2(raw_webgoat_output):
 
 
 def remove_white_spaces(input_string):
-    if input_string:
-        return input_string.replace("\\r", "").replace("\\n", "").replace("\\", "").strip()
-    return input_string
+    return input_string.replace("\\r", "").replace("\\n", "").replace("\\", "").strip()
+
+
 
 def recreate_database(direct_url: str, jsessionid:str):
 
@@ -135,3 +148,5 @@ def recreate_database(direct_url: str, jsessionid:str):
     wg_direct_database_check(direct_url, drop_table_query, jsessionid)
     wg_direct_database_check(direct_url, create_table_query, jsessionid)
     wg_direct_database_check(direct_url, fill_table_query, jsessionid)
+
+
