@@ -63,8 +63,11 @@ def generate_corruption_suffixes(db_table_settings: DB_table_settings) -> list[s
 
   CORRUPTION_SUFFIXES = [
     f"'; DROP TABLE {table_name};--",
+    f"; DROP TABLE {table_name};--",
     f"'; ALTER TABLE {table_name} ADD COLUMN hacked_text_column TEXT; --",
+    f"; ALTER TABLE {table_name} ADD COLUMN hacked_text_column TEXT; --",
     f"'; ALTER TABLE {table_name} ADD COLUMN hacked_int_column INT; --",
+    f"; ALTER TABLE {table_name} ADD COLUMN hacked_int_column INT; --",
   ]
   CORRUPTION_SUFFIXES.append( build_insert_suffixe(db_table_settings) )
   add_drop_column_suffixes(table_name, column_names, CORRUPTION_SUFFIXES)

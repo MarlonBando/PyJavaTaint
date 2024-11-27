@@ -1,6 +1,6 @@
 user_settings: 
   username: "bando00"
-  jsessionid : "ZPSlG68WMwmcAAWZ1kGllV3GGeTtvIiJ0zKHZU-g"
+  jsessionid : "rYBIX2KtHAZXmjL3sPXTqimyOZUPOX57DKMyakWv"
 
 base_api_settings:
   url: "http://localhost:8080/WebGoat/SqlInjection/"
@@ -51,3 +51,44 @@ api_endpoints_settings:
       - name : "auth_tan"
         type: "string"
         default_input: "3SL99A"
+
+  - name: "Lesson 3"
+    suffix: "attack3"
+    parameters:
+      - name: "query"
+        type: "query"
+        default_input: "UPDATE employees SET department = 'Sales' WHERE first_name = 'Tobi' AND last_name = 'Barnett'"
+
+  - name : "Lesson 4"
+    suffix: "attack4"
+    parameters:
+      - name: "query"
+        type: "query"
+        default_input: "ALTER TABLE employees ADD phone varchar(20);"
+
+  - name: "Assignment 5a"
+    suffix: "assignment5a"
+    parameters:
+      - name: "account"
+        type: "string"
+        default_input: "Smith'"
+      - name: "operator"
+        type: "string"
+        default_input: "OR"
+      - name: "injection"
+        type: "string"
+        default_input: "'1'='1"
+
+  - name: "Assignment 6a"
+    suffix: "attack6a"
+    parameters:
+      - name: "userid_6a"
+        type: "string"
+        default_input: "Smith"
+
+  - name: "Assignment 6b"
+    suffix: "attack6b"
+    parameters:
+      - name: "userid_6b"
+        type: "string"
+        default_input: "passW0rD"

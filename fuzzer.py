@@ -52,7 +52,7 @@ class Fuzzer:
 
     def _fuzz_endpoint(self, endpoint: APIEndpoint) -> None:
 
-            self.vulnerability_report.add_new_endpoint()
+            self.vulnerability_report.add_new_endpoint(endpoint.name)
             start_time: float = time.time()
             wg_interface.recreate_database(self.basic_url+self.direct_query_addr, self.jsessionid)
             self._fuzz_endpoint_with_exfiltration(endpoint)
@@ -71,7 +71,7 @@ class Fuzzer:
             for tainted_query in qlg.generate_tainted_queries_for_exfiltration(fuzzed_parameter.default_input):
 
                 tainted_result = self._get_tainted_result(url, endpoint, fuzzed_parameter, tainted_query)
-                if tainted_result != legit_json_result:
+                if tainted_result != '[]' and tainted_result != legit_json_result:
 
                     self.vulnerability_report.add_vuln_to_last_endpoint( Vulnerability("exfiltration", endpoint.name, fuzzed_parameter.default_input, tainted_query, legit_json_result, tainted_result) )
 
@@ -81,7 +81,6 @@ class Fuzzer:
 
         url = self.basic_url + endpoint.suffix
         direct_url: str = self.basic_url + self.direct_query_addr
-        wg_interface.recreate_database(direct_url, self.jsessionid)
         sane_db_snapshot = self.get_db_snapshot()
         for fuzzed_parameter in endpoint.parameters:
             for tainted_query in qlg.generate_tainted_queries_for_corruption(fuzzed_parameter.default_input, self.db_table_settings):
@@ -89,9 +88,8 @@ class Fuzzer:
                 self._get_tainted_result(url, endpoint, fuzzed_parameter, tainted_query)
                 new_db_snapshot = self.get_db_snapshot()
                 if not sane_db_snapshot == new_db_snapshot:
-
                     self.vulnerability_report.add_vuln_to_last_endpoint( Vulnerability("corruption", endpoint.name, fuzzed_parameter.default_input, tainted_query, sane_db_snapshot, new_db_snapshot) )
-
+                    wg_interface.recreate_database(direct_url, self.jsessionid)
 
 
     def _get_legit_result(self, url: str, endpoint: APIEndpoint) -> str:

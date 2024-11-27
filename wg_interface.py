@@ -1,9 +1,10 @@
 import re
 import json
+import html
 import requests
+from bs4 import BeautifulSoup
 
 def query_webgoat(url, request_data, jsessionid, name_of_lesson):
-     
     request_cookies = {"JSESSIONID": jsessionid}
     raw_webgoat_output = requests.post(url, data=request_data, cookies=request_cookies)
     return webgoat_to_json(name_of_lesson, raw_webgoat_output.text)
@@ -17,23 +18,87 @@ def wg_direct_database_check(direct_url: str, direct_query: str, jsessionid: str
     raw_webgoat_output = requests.post(direct_url, data=request_data, cookies=request_cookies)
     return webgoat_to_json("direct_query", raw_webgoat_output.text)
 
-
-
-
 def webgoat_to_json(name_of_lesson, raw_webgoat_output_text):
     match name_of_lesson:
         case "direct_query":
             return parse_direct_query(raw_webgoat_output_text)
-        case "example1":
-            result = {"example1": raw_webgoat_output_text}
-        case "Assignment 5b":
-            return parse_assignment_5b(raw_webgoat_output_text)
-        case "Assignment 5a":
-            return parse_assignment_5a(raw_webgoat_output_text)
-        case "Lesson 2":
-            return parse_lesson_2(raw_webgoat_output_text)
         case _:
-            raise Exception(f"Unhandled lesson : {name_of_lesson}")
+            return parse_api_output(raw_webgoat_output_text)
+
+def parse_api_output(input_string):
+    """
+    Parses the standard output received from a WebGoat API, cleaning the input, extracting 
+    the HTML table from the `output` key, and converting it into structured JSON.
+
+    Returns:
+    - A JSON-formatted string where each row of the table is represented as a dictionary 
+      with column headers as keys and the corresponding cell content as values.
+    """
+    cleaned_string = clean_input_string(input_string)
+    data = parse_json(cleaned_string)
+    output_html = extract_output_html(data)
+    unescaped_html = unescape_html(output_html)
+    return parse_html_table_to_json(unescaped_html)
+
+def clean_input_string(input_string):
+    """
+    Removes unnecessary escape characters (`\\n` and `\\\\`) from the input string.
+    """
+    return input_string.replace('\\n', '').replace('\\\\', '')
+
+def parse_json(cleaned_string):
+    """
+    Converts the cleaned string into a JSON object.
+    """
+    return json.loads(cleaned_string)
+
+def extract_output_html(data):
+    """
+    Extracts the value of the `output` key from the JSON object.
+    """
+    return data.get("output", "")
+
+def unescape_html(html_content):
+    """
+    Unescapes the HTML content to render it into valid HTML.
+    """
+    if not html_content:
+        return ''
+    return html.unescape(html_content)
+
+def parse_html_table_to_json(html_content):
+    """
+    Parses the HTML table content and converts it to a JSON string.
+    """
+    soup = BeautifulSoup(html_content, 'html.parser')
+    table = soup.find('table')
+    if not table:
+        return json.dumps([])  # Return empty JSON if no table is found
+
+    headers = extract_table_headers(table)
+    rows = extract_table_rows(table, headers)
+    return json.dumps(rows, indent=2)
+
+def extract_table_headers(table):
+    """
+    Extracts the headers (column names) from the table's `<th>` tags.
+    """
+    return [th.get_text(strip=True) for th in table.find_all('th')]
+
+def extract_table_rows(table, headers):
+    """
+    Extracts rows of data from the table's `<td>` tags and aligns them with headers.
+    """
+    rows = []
+    for tr in table.find_all('tr')[1:]:  # Skip header row
+        row = {}
+        cells = tr.find_all('td')
+        for i, cell in enumerate(cells):
+            if i < len(headers):  # Ensure alignment with headers
+                row[headers[i]] = cell.get_text(strip=True)
+        if row:
+            rows.append(row)
+    return rows
 
 
 def parse_direct_query(raw_webgoat_output_text):

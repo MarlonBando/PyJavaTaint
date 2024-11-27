@@ -13,4 +13,3 @@ elif len(sys.argv) == 3:
   fuzzer.fuzz_single_endpoint(lesson_name)
 else:
   raise ValueError("The fuzzer only accets one argument")
-

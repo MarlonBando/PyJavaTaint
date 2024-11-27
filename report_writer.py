@@ -15,6 +15,7 @@ class Vulnerability:
 @dataclass
 class Endpoint_review:
 
+  name: str = ""
   vulnerability_list: List[Vulnerability] = field(default_factory=list)
   execution_time: float = 0.
 
@@ -30,8 +31,8 @@ class Vulnerability_report:
 
 
 
-  def add_new_endpoint(self):
-    self.endpoint_list.append(Endpoint_review())
+  def add_new_endpoint(self,name):
+    self.endpoint_list.append(Endpoint_review(name))
 
 
 
