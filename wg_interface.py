@@ -22,8 +22,29 @@ def webgoat_to_json(name_of_lesson, raw_webgoat_output_text):
     match name_of_lesson:
         case "direct_query":
             return parse_direct_query(raw_webgoat_output_text)
+        case "Assignment 6a" | "Assignment 6b":
+            return parse_advanced_assignment(raw_webgoat_output_text)
         case _:
             return parse_api_output(raw_webgoat_output_text)
+
+
+def parse_advanced_assignment(raw_webgoat_output_text):
+    """
+    Extracts the rows from an HTML table inside a <p> tag in the WebGoat output
+    and returns the result as a JSON list of dictionaries.
+
+    Args:
+        raw_webgoat_output_text (str): JSON content as a string.
+
+    Returns:
+        str: JSON string containing the rows as a list of dictionaries.
+    """
+    # Clean the input string
+    cleaned_string = clean_input_string(raw_webgoat_output_text)
+    data = parse_json(cleaned_string)
+    output_html = extract_output_html(data)
+    clean_html = unescape_html(output_html)
+    return parse_html_paragraph_to_json(clean_html)
 
 def parse_api_output(input_string):
     """
@@ -58,6 +79,7 @@ def extract_output_html(data):
     """
     return data.get("output", "")
 
+
 def unescape_html(html_content):
     """
     Unescapes the HTML content to render it into valid HTML.
@@ -77,7 +99,34 @@ def parse_html_table_to_json(html_content):
 
     headers = extract_table_headers(table)
     rows = extract_table_rows(table, headers)
+    return json.dumps(rows, indent=2)\
+    
+def parse_html_paragraph_to_json(html_content):
+    soup = BeautifulSoup(html_content, 'html.parser')
+    p_tag = soup.find('p')
+    
+    if not p_tag:
+        return json.dumps({"error": "No <p> tag found in the provided HTML"})
+    
+    raw_text = p_tag.get_text(separator="\n").strip()
+    lines = raw_text.splitlines()
+    
+    if len(lines) < 2:
+        return json.dumps({"error": "Insufficient data inside the <p> tag"})
+    
+    header = [col.strip() for col in lines[0].split(',') if col.strip()]
+    rows = []
+    
+    for line in lines[1:]:
+        values = [value.strip() for value in line.split(',') if value.strip()]
+        row = {}
+        for i in range(len(header)):
+            if i < len(values):
+                row[header[i]] = values[i]
+        rows.append(row)
+
     return json.dumps(rows, indent=2)
+
 
 def extract_table_headers(table):
     """
@@ -192,33 +241,43 @@ def remove_white_spaces(input_string):
 
 
 
-def recreate_database(direct_url: str, jsessionid:str):
-
-    drop_table_query: str = "DROP TABLE employees"
-
-    create_table_query: str = """
-    CREATE TABLE employees (
-        userid INT PRIMARY KEY,
-        first_name VARCHAR(50),
-        last_name VARCHAR(50),
-        department VARCHAR(50),
-        salary DECIMAL(10, 2),
-        auth_tan VARCHAR(10)
-    );
+def recreate_database(direct_url: str, jsessionid: str, table_name: str):
     """
-
-    fill_table_query: str = """
-    INSERT INTO employees (userid, first_name, last_name, department, salary, auth_tan)
-    VALUES
-        (32147, 'Paulina', 'Travers', 'Accounting', 46000.00, 'P45JSI'),
-        (89762, 'Tobi', 'Barnett', 'Development', 77000.00, 'TA9LL1'),
-        (96134, 'Bob', 'Franco', 'Marketing', 83700.00, 'LO9S2V'),
-        (34477, 'Abraham', 'Holman', 'Development', 50000.00, 'UU2ALK'),
-        (37648, 'John', 'Smith', 'Marketing', 64350.00, '3SL99A');
+    Recreates a database table by executing DROP, CREATE, and INSERT queries in sequence.
+    
+    Args:
+        direct_url (str): The WebGoat API endpoint URL
+        jsessionid (str): Session ID for authentication
+        table_name (str): Name of the table to recreate
+    
+    Raises:
+        FileNotFoundError: If generate_db.json is not found
+        ValueError: If specified table is not in configuration
+        json.JSONDecodeError: If JSON file is invalid
+        Exception: For other configuration or execution errors
     """
-
-    wg_direct_database_check(direct_url, drop_table_query, jsessionid)
-    wg_direct_database_check(direct_url, create_table_query, jsessionid)
-    wg_direct_database_check(direct_url, fill_table_query, jsessionid)
+    try:
+        with open('generate_db.json', 'r') as f:
+            tables_create_queries = json.load(f)
+        
+        # Find the table configuration
+        table_config = next((table for table in tables_create_queries if table['table_name'] == table_name), None)
+        if not table_config:
+            raise ValueError(f"Table {table_name} not found in configuration")
+        
+        # Execute queries in sequence
+        queries = [
+            ('DROP TABLE IF EXISTS ' + table_name),
+            table_config['create_command'],
+            table_config['populate_command']
+        ]
+        
+        for query in queries:
+            wg_direct_database_check(direct_url, query, jsessionid)
+                
+    except FileNotFoundError:
+        raise Exception("Database configuration file (generate_db.json) not found")
+    except json.JSONDecodeError:
+        raise Exception("Invalid JSON format in generate_db.json")
 
 

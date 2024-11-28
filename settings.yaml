@@ -1,10 +1,10 @@
 user_settings: 
   username: "bando00"
-  jsessionid : "33F2HjXJqE4FSPDqpCZ1WvENSNAHpD1qgJyJPb1w"
+  jsessionid : "hQVSOWjKs-Bke2Jdo-ZliOd595xx5W3v6L5CV06N"
 
 base_api_settings:
-  url: "http://localhost:8080/WebGoat/SqlInjection/"
-  direct_query_addr: "attack2direct"
+  url: "http://localhost:8080/WebGoat/"
+  direct_query_addr: "SqlInjection/attack2direct"
   direct_query: "SELECT * FROM employees;"
 
 db_table_settings:
@@ -56,7 +56,7 @@ db_table_settings:
 
 api_endpoints_settings:
   - name: "Lesson 2"
-    suffix: "attack2"
+    suffix: "SqlInjection/attack2"
     table: "employees"
     parameters:
       - name: "query"
@@ -64,7 +64,7 @@ api_endpoints_settings:
         default_input: "Select department from employees where last_name = 'Franco'"
   
   - name : "Assignment 5b"
-    suffix: "assignment5b"
+    suffix: "SqlInjection/assignment5b"
     table: "user_data"
     parameters:
       - name: "login_count"
@@ -75,7 +75,7 @@ api_endpoints_settings:
         default_input: "101"
 
   - name : "Assignment 5a"
-    suffix: "attack8"
+    suffix: "SqlInjection/attack8"
     table: "employees"
     parameters:
       - name: "name"
@@ -86,7 +86,7 @@ api_endpoints_settings:
         default_input: "3SL99A"
 
   - name: "Lesson 3"
-    suffix: "attack3"
+    suffix: "SqlInjection/attack3"
     table: "employees"
     parameters:
       - name: "query"
@@ -94,7 +94,7 @@ api_endpoints_settings:
         default_input: "UPDATE employees SET department = 'Sales' WHERE first_name = 'Tobi' AND last_name = 'Barnett'"
 
   - name : "Lesson 4"
-    suffix: "attack4"
+    suffix: "SqlInjection/attack4"
     table: "employees"
     parameters:
       - name: "query"
@@ -102,7 +102,7 @@ api_endpoints_settings:
         default_input: "ALTER TABLE employees ADD phone varchar(20);"
 
   - name: "Assignment 5a"
-    suffix: "assignment5a"
+    suffix: "SqlInjection/assignment5a"
     table: "employees"
     parameters:
       - name: "account"
@@ -116,17 +116,17 @@ api_endpoints_settings:
         default_input: "'1'='1"
 
   - name: "Assignment 6a"
-    suffix: "attack6a"
+    suffix: "SqlInjectionAdvanced/attack6a"
     table: "user_data"
     parameters:
-      - name: "userid"
+      - name: "userid_6a"
         type: "string"
-        default_input: "Smith"
+        default_input: "Snow"
 
   - name: "Assignment 6b"
-    suffix: "attack6b"
+    suffix: "SqlInjectionAdvanced/attack6a"
     table: "user_system_data"
     parameters:
-      - name: "password"
+      - name: "password_6b"
         type: "string"
         default_input: "passW0rD"
