@@ -5,5 +5,5 @@ settings.yaml
 aaaaaaaaa.json
 webgoat-2024.2-SNAPSHOT.jar
 aaaaaaaaa.json
-dynamic_analysis_report.json
+./dynamic_analysis_report.json
 docker
