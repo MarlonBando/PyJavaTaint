@@ -43,12 +43,15 @@ def generate_tainted_queries_for_exfiltration(basic_query: str) -> list[str]:
 
 
 
-def generate_tainted_queries_for_corruption(basic_query: str, db_table_settings: DB_table_settings) -> list[str]:
+def generate_tainted_queries_for_corruption(basic_query: str, table_settings_dict: dict[str, DB_table_settings], table_name: str) -> list[str]:
   
+  if table_name not in table_settings_dict:
+    raise Exception(f"Error: Table {table_name} not found in settings")
+    
+  db_table_settings = table_settings_dict[table_name]
   CORRUPTION_SUFFIXES: list[str] = generate_corruption_suffixes(db_table_settings)
   tainted_queries: list[str] = []
   for suffix in CORRUPTION_SUFFIXES:
-
     tainted_queries.append(basic_query + suffix)
   return tainted_queries
 
@@ -121,18 +124,28 @@ def get_default_from_datatype(list_of_datatypes: list[str]) -> list[str]:
 
 ## TESTS
 if __name__ == '__main__':
-  basic_query: str = "SELECT * FROM employees"
-  column_names = ["name", "wage", "department"]
-  datatypes = ["TEXT", "INT", "TEXT"]
-  db_table_settings: DB_table_settings = DB_table_settings("employees", column_names, datatypes)
+  # Create a dictionary of table settings
+  table_settings_dict: dict[str, DB_table_settings] = {}
+  
+  # Add employees table
+  employees_columns = ["name", "wage", "department"]
+  employees_datatypes = ["TEXT", "INT", "TEXT"]
+  table_settings_dict["employees"] = DB_table_settings("employees", employees_columns, employees_datatypes)
+  
+  # Add users table
+  users_columns = ["id", "username", "password"]
+  users_datatypes = ["INT", "TEXT", "TEXT"]
+  table_settings_dict["users"] = DB_table_settings("users", users_columns, users_datatypes)
 
-  print("\nCORRUPTION QUERIES : \n")
-  corruption_queries: list[str] = generate_tainted_queries_for_corruption(basic_query, db_table_settings)
+  basic_query: str = "SELECT * FROM employees"
+
+  print("\nCORRUPTION QUERIES for employees: \n")
+  corruption_queries: list[str] = generate_tainted_queries_for_corruption(basic_query, table_settings_dict, "employees")
   for query in corruption_queries:
     print(query)
 
   print("\nEXFILTRATION QUERIES : \n")
-  basic_query += "WHERE department=\"marketing\""
+  basic_query += " WHERE department=\"marketing\""
   exfiltration_queries: list[str] = generate_tainted_queries_for_exfiltration(basic_query)
   for query in exfiltration_queries:
     print(query)

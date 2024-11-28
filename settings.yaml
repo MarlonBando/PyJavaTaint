@@ -1,6 +1,6 @@
 user_settings: 
   username: "bando00"
-  jsessionid : "rYBIX2KtHAZXmjL3sPXTqimyOZUPOX57DKMyakWv"
+  jsessionid : "33F2HjXJqE4FSPDqpCZ1WvENSNAHpD1qgJyJPb1w"
 
 base_api_settings:
   url: "http://localhost:8080/WebGoat/SqlInjection/"
@@ -8,25 +8,56 @@ base_api_settings:
   direct_query: "SELECT * FROM employees;"
 
 db_table_settings:
-  table_name: "employees"
-  column_names:
-    - "userid"
-    - "first_name"
-    - "last_name"
-    - "department"
-    - "salary"
-    - "auth_tan"
-  column_datatypes:
-    - "INT"
-    - "TEXT"
-    - "TEXT"
-    - "TEXT"
-    - "INT"
-    - "TEXT"
+  - table_name: "employees"
+    column_names:
+      - "userid"
+      - "first_name"
+      - "last_name"
+      - "department"
+      - "salary"
+      - "auth_tan"
+    column_datatypes:
+      - "INT"
+      - "TEXT"
+      - "TEXT"
+      - "TEXT"
+      - "INT"
+      - "TEXT"
+
+  - table_name: "user_data"
+    column_names:
+      - "userid"
+      - "first_name"
+      - "last_name"
+      - "cc_number"
+      - "cc_type"
+      - "cookie"
+      - "login_count"
+    column_datatypes:
+      - "INT"
+      - "TEXT"
+      - "TEXT"
+      - "TEXT"
+      - "TEXT"
+      - "TEXT"
+      - "INT"
+
+  - table_name: "user_system_data"
+    column_names:
+      - "userid"
+      - "user_name"
+      - "password"
+      - "cookie"
+    column_datatypes:
+      - "INT"
+      - "TEXT"
+      - "TEXT"
+      - "TEXT"
 
 api_endpoints_settings:
   - name: "Lesson 2"
     suffix: "attack2"
+    table: "employees"
     parameters:
       - name: "query"
         type: "query"
@@ -34,6 +65,7 @@ api_endpoints_settings:
   
   - name : "Assignment 5b"
     suffix: "assignment5b"
+    table: "user_data"
     parameters:
       - name: "login_count"
         type: "string"
@@ -44,6 +76,7 @@ api_endpoints_settings:
 
   - name : "Assignment 5a"
     suffix: "attack8"
+    table: "employees"
     parameters:
       - name: "name"
         type: "string"
@@ -54,6 +87,7 @@ api_endpoints_settings:
 
   - name: "Lesson 3"
     suffix: "attack3"
+    table: "employees"
     parameters:
       - name: "query"
         type: "query"
@@ -61,6 +95,7 @@ api_endpoints_settings:
 
   - name : "Lesson 4"
     suffix: "attack4"
+    table: "employees"
     parameters:
       - name: "query"
         type: "query"
@@ -68,6 +103,7 @@ api_endpoints_settings:
 
   - name: "Assignment 5a"
     suffix: "assignment5a"
+    table: "employees"
     parameters:
       - name: "account"
         type: "string"
@@ -81,14 +117,16 @@ api_endpoints_settings:
 
   - name: "Assignment 6a"
     suffix: "attack6a"
+    table: "user_data"
     parameters:
-      - name: "userid_6a"
+      - name: "userid"
         type: "string"
         default_input: "Smith"
 
   - name: "Assignment 6b"
     suffix: "attack6b"
+    table: "user_system_data"
     parameters:
-      - name: "userid_6b"
+      - name: "password"
         type: "string"
         default_input: "passW0rD"

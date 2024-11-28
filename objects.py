@@ -18,30 +18,28 @@ class APIEndpoint:
     """Represents an API endpoint configuration."""
     name: str
     suffix: str
+    table: str
     parameters: List[Parameter]
 
 
 
 class DB_table_settings:
   
-  sql_datatypes: list[str] = ['TEXT', 'INT', 'text', 'int']
+    sql_datatypes: list[str] = ['TEXT', 'INT', 'VARCHAR', 'text', 'int', 'varchar']
 
-  def __init__(self):
-    self.table_name = ''
-    self.column_names = []
-    self.column_datatypes = []
+    def __init__(self, table_name: str = '', column_names: List[str] = None, column_datatypes: List[str] = None):
+        self.table_name = table_name
+        self.column_names = column_names or []
+        self.column_datatypes = column_datatypes or []
+
+    def check_settings_length(self):
+        if len(self.column_names) != len(self.column_datatypes):
+            raise Exception("column_names and column_datatypes must be the same length")
     
-
-  def check_settings_length(self):
-    if len(self.column_names) != len(self.column_datatype):
-      raise Exception("column_names and data_types must be the same length")
-    
-  def check_datatype_validity(self):
-    for datatype in self.column_datatype:
-      if not datatype in self.sql_datatypes:
-        raise Exception(f"datatypes must be TEXT or INT, not {datatype}")
-
-
+    def check_datatype_validity(self):
+        for datatype in self.column_datatypes:
+            if not datatype.upper() in self.sql_datatypes:
+                raise Exception(f"datatypes must be TEXT, VARCHAR or INT, not {datatype}")
 
 
 class Settings:
@@ -55,7 +53,7 @@ class Settings:
         self.DIRECT_QUERY_ADDR = ''
         self.DIRECT_QUERY = ''
         self.api_endpoints: List[APIEndpoint] = []
-        self.db_table_settings: DB_table_settings = DB_table_settings()
+        self.db_table_settings: List[DB_table_settings] = []
         
         raw_yaml_settings = self._load_yaml_file(config_path)
         self._load_all_settings(raw_yaml_settings)
@@ -77,7 +75,7 @@ class Settings:
     def _load_all_settings(self, settings: Dict[str, Any]) -> None:
         """Orchestrates the loading of all configuration sections."""
         self._load_user_settings(settings.get('user_settings', {}))
-        self._load_db_table_settings(settings.get('db_table_settings', {}))
+        self._load_db_table_settings(settings.get('db_table_settings', []))
         self._load_base_api_settings(settings.get('base_api_settings', {}))
         self._load_api_endpoints(settings.get('api_endpoints_settings', []))
 
@@ -109,17 +107,28 @@ class Settings:
 
     
 
-    def _load_db_table_settings(self, db_table_settings: Dict[str, str]) -> None:
+    def _load_db_table_settings(self, db_tables_settings: List[Dict[str, Any]]) -> None:
+        """Loads database table settings for multiple tables."""
+        if not db_tables_settings:
+            raise ValueError("Missing database table settings in settings.yaml")
 
-        if not db_table_settings.get('table_name'):
-            raise ValueError("Missing 'table_name' in settings.yaml")
-        if not db_table_settings.get('column_names'):
-            raise ValueError("Missing 'column_names' in settings.yaml")
-        if not db_table_settings.get('column_datatypes'):
-            raise ValueError("Missing 'column_datatypes' in settings.yaml")
-        self.db_table_settings.table_name = db_table_settings.get('table_name', '')
-        self.db_table_settings.column_names = db_table_settings.get('column_names', [])
-        self.db_table_settings.column_datatypes = db_table_settings.get('column_datatypes', [])
+        self.db_table_settings = []
+        for table_setting in db_tables_settings:
+            if not table_setting.get('table_name'):
+                raise ValueError("Missing 'table_name' in settings.yaml")
+            if not table_setting.get('column_names'):
+                raise ValueError("Missing 'column_names' in settings.yaml")
+            if not table_setting.get('column_datatypes'):
+                raise ValueError("Missing 'column_datatypes' in settings.yaml")
+
+            table = DB_table_settings(
+                table_name=table_setting['table_name'],
+                column_names=table_setting['column_names'],
+                column_datatypes=table_setting['column_datatypes']
+            )
+            table.check_settings_length()
+            table.check_datatype_validity()
+            self.db_table_settings.append(table)
 
 
 
@@ -134,21 +143,25 @@ class Settings:
                 raise ValueError(f"Missing 'name' in endpoint {i} of settings.yaml")
             if 'suffix' not in endpoint:
                 raise ValueError(f"Missing 'suffix' in endpoint {i} of settings.yaml")
+            if 'table' not in endpoint:
+                raise ValueError(f"Missing 'table' in endpoint {i} of settings.yaml")
 
             # Create endpoint with parameters
             parameters = self._create_parameters(endpoint.get('parameters', []))
             api_endpoint = APIEndpoint(
                 name=endpoint['name'],
                 suffix=endpoint['suffix'],
+                table=endpoint['table'],
                 parameters=parameters
             )
             self.api_endpoints.append(api_endpoint)
-
 
     @staticmethod
     def _create_parameters(params_config: List[Dict[str, str]]) -> List[Parameter]:
         parameters = []
         for param in params_config:
+            if 'name' not in param:
+                raise ValueError("Parameter missing required 'name' field")
             if 'type' not in param:
                 raise ValueError("Parameter missing required 'type' field")
             if 'default_input' not in param:

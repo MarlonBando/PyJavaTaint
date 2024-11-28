@@ -82,9 +82,10 @@ class Fuzzer:
         url = self.basic_url + endpoint.suffix
         direct_url: str = self.basic_url + self.direct_query_addr
         sane_db_snapshot = self.get_db_snapshot()
+        table_settings_dict = {table.table_name: table for table in self.db_table_settings}
+        
         for fuzzed_parameter in endpoint.parameters:
-            for tainted_query in qlg.generate_tainted_queries_for_corruption(fuzzed_parameter.default_input, self.db_table_settings):
-
+            for tainted_query in qlg.generate_tainted_queries_for_corruption(fuzzed_parameter.default_input, table_settings_dict, endpoint.table):
                 self._get_tainted_result(url, endpoint, fuzzed_parameter, tainted_query)
                 new_db_snapshot = self.get_db_snapshot()
                 if not sane_db_snapshot == new_db_snapshot:
